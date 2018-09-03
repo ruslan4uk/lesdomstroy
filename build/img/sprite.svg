@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg"><symbol id="icon-city-select-arr" viewBox="0 0 15 10">
+    <path d="M1.137 1.57L7.5 7.934l6.364-6.364" stroke-width="2"/>
+</symbol><symbol id="icon-city-select" viewBox="0 0 10 16">
+    <path d="M0 0h10v16H0z"/>
+    <path d="M10 4.898C10 7.603 7.232 12.082 5 16 2.898 12.408 0 7.603 0 4.898S2.239 0 5 0s5 2.193 5 4.898z"/>
+    <ellipse cx="4.997" cy="4.898" rx="2.333" ry="2.286"/>
+</symbol><symbol id="icon-house" viewBox="0 0 91 70">
+    <path d="M1 68.5h5m83.5 0H84m0 0V32H57h31V5.5H33.5m50.5 63h-4.5m-46-63L53 24v6.5l-4-3.837M33.5 5.5l-5-4.5-14 12.627m0 0V5.5H6v15.794m8.5-7.667L6 21.294m0 0L3 24v6.5l3-2.765m0 0L28.5 7 49 26.663M6 27.735V68.5m0 0h7m36 0V26.663M49 68.5h-6m6 0h5.5m-11.5 0H13m30 0v-7m-30 7v-7m0 0h30m-30 0v-6m30 6v-6m0 0H13m30 0v-6m-30 6v-6m0 0h30m-30 0v-6.75m30 6.75v-6.75m0 0V36H13v6.75m30 0H13M65.75 54h8.75V37.5h-8.75m0 16.5H57V37.5h8.75m0 16.5V37.5m-11.25 31c1.667-2.833 5.8-8.6 9-9 3.2-.4 6.667 1.167 8 2 1.833-.5 3.964-.344 5.5 1.5 2.5 3 5 5.5 2.5 5.5m-25 0h25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol><symbol id="icon-phone" viewBox="0 0 20 20">
+    <path d="M4.285 13.247L.42 15.82a.811.811 0 0 0-.326.392c-.486 1.362.993 2.12 3.152 3.557 2.284 1.521 10.243-4.904 12.184-6.843C17.712 10.645 20 5.323 20 3.041c0-1.55-1.83-2.477-3.16-2.877-.388-.117-.795.056-1.02.392L13.468 4.08a1 1 0 0 0-.062 1.003l.94 1.876a1 1 0 0 1-.188 1.156l-5.835 5.824a1 1 0 0 1-1.153.187l-1.884-.94a1 1 0 0 0-1 .062z"/>
+</symbol></svg>

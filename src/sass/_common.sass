@@ -1,0 +1,132 @@
+$xs: 576
+$sm: 768
+$md: 992
+$lg: 1200
+
+// colors
+$firstColor: #DFBC82
+
+html
+    font-size: 14px
+    +rmin($sm)
+        font-size: 15px
+    +rmin($md)
+        font-size: 16px
+body 
+	font-family: 'Roboto', sans-serif
+	font-weight: 300
+	font-size: 1rem
+	line-height: 1.4
+    background: #ccc
+
+// General
+img 
+	max-width: 100%
+	font-size: 0
+	line-height: 0
+	display: block
+
+a 
+	text-decoration: none
+	&:hover
+		text-decoration: none
+
+p 
+	margin-bottom: 1rem
+
+.container
+    width: 100%
+    max-width: 100%
+    margin: 0 auto
+    padding: 0 20px
+    +rmin($sm)
+        max-width: 720px
+    +rmin($md)
+        max-width: 960px
+    +rmin($lg)
+        max-width: 1170px
+
+
+.title
+    font-family: 'Ubuntu'
+    font-size: 1.75rem
+    color: #000000
+    text-align: center
+    margin-bottom: 3rem
+    +rmin($sm)
+        font-size: 2.5rem
+    &--white
+        color: #ffffff
+
+// BTN
+.btn
+    display: inline-block
+    padding: 0.75rem 1rem
+    max-width: 15rem
+    width: 100%
+    color: #000000
+    text-align: center
+    font-family: 'Ubuntu'
+    font-size: 1rem
+    background: $firstColor
+    border: 1px solid $firstColor
+    display: block
+    +tr(all ease 0.2s)
+    &:hover
+        background: #ffffff
+    &--center 
+        margin: 0 auto
+    &--mcenter
+        margin: 0 auto 
+        +rmin($xs)
+            margin: 0
+    &--mb 
+        margin-bottom: 1rem !important
+    &--revers 
+        background: #ffffff
+        &:hover
+            background: $firstColor
+    &__group
+        display: flex
+        flex-wrap: wrap
+        //justify-content: space-between
+        margin-top: 2rem
+        & .btn 
+            width: calc(50% - 1rem)
+            margin-right: 1rem
+            &:last-child
+                margin-right: 0
+
+// form
+.form
+    &__group
+        text-align: center
+        &--col
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-between
+            max-width: 56rem
+            margin: 2rem auto 0
+    &__input
+        border-top: 0
+        border-left: 0
+        border-right: 0
+        border-bottom: 2px solid #cccccc
+        width: 100%
+        font-size: 1rem
+        color: #333333
+        padding: 0.25rem 0
+        margin-bottom: 1.5rem
+        text-align: center
+        +tr(all ease 0.2s)
+        +rmin($xs)
+            margin-bottom: 0
+            text-align: left
+        &:focus
+            border-bottom: 2px solid $firstColor
+        &--col 
+            width: 100%
+            +rmin($xs)
+                width: calc(33.33% - 1rem)
+
+
