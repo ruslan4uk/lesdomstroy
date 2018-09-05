@@ -2,6 +2,16 @@ import $ from 'jquery';
 import 'owl.carousel';
 import 'vegas';
 
+
+$('.main-production__item').on('click touchend',function() {
+  $('.main-production__item').removeClass('main-production__item--is-active');
+  if($(this).hasClass('main-production__item--is-active')) {
+    $('.main-production__item').removeClass('main-production__item--is-active');
+  } else {
+    $(this).addClass('main-production__item--is-active');
+  }
+});
+
 var mslider = $('.main-project__list');
 mslider.owlCarousel({
   loop:true,

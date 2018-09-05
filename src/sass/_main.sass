@@ -317,30 +317,58 @@
 		color: #ffffff
 		font-family: 'Roboto Condensed'
 		font-weight: 700
-		font-size: 1.375rem
+		font-size: 1.25rem
 		background-size: cover
-		padding: 0.75rem 2rem
+		padding: 0.75rem 2rem 1rem
 		line-height: 1.2
-		height: 24rem
+		height: 22rem
+		position: relative
 		+tr(transform ease 0.2s)
+		&:after
+			opacity: 0.75
+			position: absolute
+			content: ' '
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			background: -moz-linear-gradient(top, rgba(135,224,253,0) 0%, rgba(65,108,121,0.13) 52%, rgba(0,0,0,1) 100%)
+			background: -webkit-linear-gradient(top, rgba(135,224,253,0) 0%,rgba(65,108,121,0.13) 52%,rgba(0,0,0,1) 100%)
+			background: linear-gradient(to bottom, rgba(135,224,253,0) 0%,rgba(65,108,121,0.13) 52%,rgba(0,0,0,1) 100%)
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0087e0fd', endColorstr='#000000',GradientType=0 )
 		&:hover
 			transform: scale(1.025)
+		& span 
+			position: relative
+			z-index: 2
 		&--house
 			background-image: url(../img/main-services1.jpg)
+			height: 18rem
+			+rmin($xs)
+				height: 24rem
 			+rmin($sm)
-				height: 28rem
+				height: 30rem
 		&--material
 			background-image: url(../img/main-services2.jpg)
+			height: 18rem
+			+rmin($xs)
+				height: 24rem
 			+rmin($sm)
-				height: 13.5rem
+				height: 14.5rem
 		&--works
 			background-image: url(../img/main-services3.jpg)
+			height: 18rem
+			+rmin($xs)
+				height: 24rem
 			+rmin($sm)
-				height: 13.5rem
+				height: 14.5rem
 		&--bathhouse
 			background-image: url(../img/main-services4.jpg)
+			height: 18rem
+			+rmin($xs)
+				height: 24rem
 			+rmin($sm)
-				height: 13.5rem
+				height: 14.5rem
 
 // main-production
 .main-production
@@ -351,102 +379,87 @@
 	background-size: cover
 	&__wrap
 		display: flex
-		flex-flow: row nowrap
-		margin: 0 -0.25rem
+		width: 100%
+		flex-wrap: wrap
+		+rmin($md)
+			flex-flow: row nowrap
 	&__item
 		overflow: hidden
-		flex: 1 1 20%
-		margin: 0 0.25rem
-		+tr(flex ease 0.2s)
-		transition-delay: 0.1s
-		&:hover
-			flex: 0.000000001 0.00000001 21rem
-	&__block
-		height: 30rem
-		background-size: cover
-		background-position: center center
-		display: flex
-		flex-wrap: wrap
-		justify-content: center
-		align-items: center
-		position: relative
-		&:after
-			content: ' '
-			position: absolute
-			top: 0
-			left: 0
-			width: 100%
-			height: 100%
-			background: rgba(0,0,0,.3)
-		&--workpiece
-			background-image: url(../img/main-production/workpiece.png)
-		&--production
-			background-image: url(../img/main-production/production.png)
-		&--introduction
-			background-image: url(../img/main-production/introduction.png)
-		&--project
-			background-image: url(../img/main-production/project.png)
-		&--assembly
-			background-image: url(../img/main-production/assembly.png)
-		&--delivery
-			background-image: url(../img/main-production/delivery.png)
-	&__icon 
-		width: 4.5rem
-		height: 4.5rem
-		background-size: contain
 		background-repeat: no-repeat
-		background-position: center center
-		display: block
-		margin: 0 auto
-		&--workpiece
-			background-image: url(../img/main-production/workpiece.svg)
-		&--production
-			background-image: url(../img/main-production/production.svg)
-		&--introduction
-			background-image: url(../img/main-production/introduction.svg)
-		&--project
-			background-image: url(../img/main-production/project.svg)
-		&--assembly
-			background-image: url(../img/main-production/assembly.svg)
-		&--delivery
-			background-image: url(../img/main-production/delivery.svg)
-	&__iblock
+		background-position: center
+		background-size: cover
 		position: relative
-		z-index: 2
-		text-align: center
-	&__mtitle
-		color: #ffffff
-		font-family: 'Roboto'
-		font-weight: 700
-		font-size: 1.125rem
-		width: 100%
-		margin-top: 0.5rem
-	&__title
-		color: #ffffff
-		font-family: 'Roboto'
-		font-weight: 700
-		font-size: 1.125rem
-		width: 100%
-		margin-top: 1rem
-	&__text
-		position: absolute
+		flex: 1 1 100%
+		height: 8rem
+		margin-bottom: 1rem
+		cursor: pointer
+		+tr(all ease 0.3s)
+		+rmin($md)
+			flex: 1 1 16.66666667%
+			height: 30rem
+			margin-bottom: 0
+		&:nth-child(1)
+			background-image: url(../img/main-production/1.jpg)
+		&:nth-child(2)
+			background-image: url(../img/main-production/2.jpg)
+		&:nth-child(3)
+			background-image: url(../img/main-production/3.jpg)
+		&:nth-child(4)
+			background-image: url(../img/main-production/4.jpg)
+		&:nth-child(5)
+			background-image: url(../img/main-production/5.jpg)
+		&:nth-child(6)
+			background-image: url(../img/main-production/6.jpg)
+		
+	&__block
 		width: 100%
 		height: 100%
-		left: 0
+		position: absolute
 		top: 0
-		padding: 2rem
-		color: #ffffff
-		opacity: 0
+		left: 0
+		height: 100%
+		width: 100%
 		display: flex
-		background: rgba(0,0,0,.8)
-		z-index: 3
+		justify-content: center
+		align-items: center
+		flex-direction: column
+		& img 
+			margin-bottom: 1rem
+			max-width: 3.5rem
+			+rmin($md)
+				max-width: 4rem
+	&__title
+		font-size: 1.25rem
+		font-weight: 700
+		font-family: 'Roboto Condensed'
+		color: #ffffff
+	&__text
+		background: rgba(0,0,0,.7)
+		padding: 1.5rem
+		height: 100%
+		color: #ffffff
+		display: flex
 		align-content: center
 		align-items: center
-		width: 21rem
-		+tr(opacity ease 0.2s)
-		transition-delay: 0.2s
-	&__item:hover &__text
+		opacity: 0
+		visibility: hidden
+		position: relative
+		z-index: 2
+		width: 100%
+		cursor: pointer
+		+tr(all ease 0.3s)
+		+rmin($md)
+			width: 20rem
+	&__item--is-active &__text 
 		opacity: 1
+		visibility: visible
+	&__item
+		&--is-active
+			flex: 0.000000001 0.00000001 100%
+			height: auto
+			+rmin($md)
+				flex: 0.000000001 0.00000001 20rem
+	
 
 
 // main-creating
@@ -556,10 +569,17 @@
 	&__item:hover &__overlay
 		opacity: 1
 	&__nav
-		display: flex
 		margin-top: 1rem
 		justify-content: center
 		align-items: center
+		display: none
+		+rmin($sm)
+			display: flex
+	&__gbtn
+		display: flex
+		justify-content: center
+		+rmin($sm)
+			display: none
 	&__arr
 		width: 1.5rem
 		height: 1.5rem
