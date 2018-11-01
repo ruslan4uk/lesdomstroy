@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#fff" />
     <meta name="format-detection" content="telephone=no" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.0/vegas.min.css" />
-    <link rel="stylesheet" media="all" href="css/app.css?ver=1.2" />
+    <link rel="stylesheet" media="all" href="css/app.css?ver=1.21" />
   </head>
   <body>
     <!-- BEGIN content -->
@@ -25,6 +25,7 @@
             </div>
             <a href="#" class="top-line__logo">
               <img src="img/logo.svg" alt="" />
+              <span>ПСК ЛесДомСтрой</span>
             </a>
             <a href="tel:89112223344" class="top-line__mphone">
               <img src="img/icon/mphone.svg" alt="" />
@@ -54,41 +55,49 @@
         <div class="container">
           <div class="navigation__wrap">
             <div class="navigation__logo">
-              <a href="#"><img src="img/logo.svg" alt="" /></a>
+              <a href="#"><img src="img/logo.svg" alt="" /><span>ПСК ЛесДомСтрой</span></a>
             </div>
             <div class="navigation__menu">
               <ul class="navigation__list">
                 <li class="navigation__item">
-                  <a href="" class="navigation__link">Дома</a>
+                  <a href="" class="navigation__link">Главная</a>
                 </li>
                 <li class="navigation__item">
-                  <a href="" class="navigation__link">Бани</a>
+                  <a href="#" onclick="return: false;" class="navigation__link navigation__slink">Услуги</a>
+                  <div class="sub">
+                    <div class="sub__wrap">
+                      <ul class="sub__list">
+                        <li class="sub__title"><a href="#">Строительство домов и бань</a></li>
+                        <li class="sub__item"><a href="#">Из оцилиндрованного бревна</a></li>
+                        <li class="sub__item"><a href="#">Из кедра и лиственницы</a></li>
+                        <li class="sub__item"><a href="#">Из клееного бруса</a></li>
+                        <li class="sub__item"><a href="#">Из профилированного бруса</a></li>
+                        <li class="sub__item"><a href="#">Из срубов ручной рубки</a></li>
+                        <li class="sub__item"><a href="#">Из обрезного бруса</a></li>
+                      </ul>
+                      <ul class="sub__list">
+                        <li class="sub__title"><a href="#">Строительные работы</a></li>
+                        <li class="sub__item"><a href="#">Фундамент</a></li>
+                        <li class="sub__item"><a href="#">Сборка срубов</a></li>
+                        <li class="sub__item"><a href="#">Кровельные работы</a></li>
+                        <li class="sub__item"><a href="#">Шлифовка и покраска</a></li>
+                        <li class="sub__item"><a href="#">Конопатка и герметизация</a></li>
+                      </ul>
+                      <ul class="sub__list">
+                        <li class="sub__title"><a href="#">Проектирование</a></li>
+                        <li class="sub__item"><a href="#">Индивидуальное проектирование</a></li>
+                      </ul>
+                    </div>
+                  </div>
                 </li>
                 <li class="navigation__item">
-                  <a href="" class="navigation__link">Строительные работы</a>
+                  <a href="" class="navigation__link">Портфолио</a>
                 </li>
                 <li class="navigation__item">
-                  <a href="" class="navigation__link">Материалы</a>
+                  <a href="" class="navigation__link">Каталог готовых проектов</a>
                 </li>
                 <li class="navigation__item">
-                  <a href="" class="navigation__link">Проектирование</a>
-                </li>
-                <li class="navigation__item">
-                  <a href="" class="navigation__link">Наши работы</a>
-                </li>
-                <li class="navigation__item">
-                  <a href="" class="navigation__link">Статьи</a>
-                  <ul class="navigation__submenu">
-                    <li class="navigation__item">
-                      <a href="" class="navigation__link">Одна статья</a>
-                    </li>
-                    <li class="navigation__item">
-                      <a href="" class="navigation__link">Вторая статья</a>
-                    </li>
-                    <li class="navigation__item">
-                      <a href="" class="navigation__link">Третья статья</a>
-                    </li>
-                  </ul>
+                  <a href="" class="navigation__link">Полезно знать</a>
                 </li>
                 <li class="navigation__item">
                   <a href="" class="navigation__link">Контакты</a>
@@ -112,10 +121,10 @@
             <div class="navigation__phone">+7 (800) 234-90-84</div>
             <div class="navigation__social">
               <a href="" class="navigation__social-link">
-                <img src="img/icon/vk.svg" alt="">
+                <img src="img/icon/vk.svg" alt="" />
               </a>
               <a href="" class="navigation__social-link">
-                <img src="img/icon/inst.svg" alt="">
+                <img src="img/icon/inst.svg" alt="" />
               </a>
             </div>
           </div>
@@ -124,7 +133,7 @@
       <section class="jumbotron" style="background-image: url(img/jumbotron.png)">
         <div class="container">
           <div class="jumbotron__wrap">
-            <div class="title title--white">Строим дома и бани <br>из оцилиндрованного бревна</div>
+            <div class="title title--white">Строим дома и бани <br />из оцилиндрованного бревна</div>
             <div class="jumbotron__btn">
               <a href="" class="btn">Расчитать стоимость</a>
             </div>
@@ -136,15 +145,55 @@
           <div class="content__wrap">
             <div class="content__left">
               <blockquote>Оцилиндрованное бревно - один из самых популярных материалов для строительства дома</blockquote>
-              <img src="img/content-left.png" alt="">
+              <img src="img/content-left.png" alt="" />
             </div>
             <div class="content__right">
               <ul class="content__lists">
-                <li><span>Отсутсвуют крупные боковые трещины -</span><br>компенсационный пропил уводит трещины наверх</li>
-                <li><span>Не требуется внешняя и внутренняя отделка -</span><br>оцилиндрованное бревно выглядит безупречно</li>
-                <li><span>Заготавливаем ценные породы дерева -</span><br>отбираем только качественную древесину</li>
-                <li><span>Высокая теплоемкость будущего дома -</span><br>тепловой паз занимает 50% от диаметра бревна</li>
+                <li><span>Отсутсвуют крупные боковые трещины -</span><br />компенсационный пропил уводит трещины наверх</li>
+                <li><span>Не требуется внешняя и внутренняя отделка -</span><br />оцилиндрованное бревно выглядит безупречно</li>
+                <li><span>Заготавливаем ценные породы дерева -</span><br />отбираем только качественную древесину</li>
+                <li><span>Высокая теплоемкость будущего дома -</span><br />тепловой паз занимает 50% от диаметра бревна</li>
               </ul>
+            </div>
+            <div class="harv">
+              <div class="harv__title">Самостоятельно занимаемся заготовкой и обработкой древесины</div>
+              <div class="harv__list">
+                <div class="harv__item">
+                  <div class="harv__img">
+                    <img src="img/harv/1.png" alt="" />
+                  </div>
+                  <div class="harv__subtitle">Заготавливаем древесину в Кировской области</div>
+                </div>
+                <div class="harv__item">
+                  <div class="harv__img">
+                    <img src="img/harv/2.png" alt="" />
+                  </div>
+                  <div class="harv__subtitle">Обрабатываем на своем заводе в Кировской области</div>
+                </div>
+                <div class="harv__item">
+                  <div class="harv__img">
+                    <img src="img/harv/3.png" alt="" />
+                  </div>
+                  <div class="harv__subtitle">Доставляем в любую точку России</div>
+                </div>
+              </div>
+            </div>
+            <div class="harv harv--border">
+              <div class="harv__title">Осуществляем виды рубок</div>
+              <div class="harv__list">
+                <div class="harv__item">
+                  <div class="harv__img harv__img--felling">
+                    <img src="img/harv/11.png" alt="" />
+                  </div>
+                  <div class="harv__subtitle">В чашу</div>
+                </div>
+                <div class="harv__item">
+                  <div class="harv__img harv__img--felling">
+                    <img src="img/harv/12.png" alt="" />
+                  </div>
+                  <div class="harv__subtitle">В лапу</div>
+                </div>
+              </div>
             </div>
             <div class="content__full">
               <p>Какой-то текст, описание описание описание описание опиание опиание описание описание описаниеКакой-то текст, описание описание описание описание опиание опиание описание описание описание</p>
@@ -343,7 +392,7 @@
         <div class="remodal__wrap">
           <div class="remodal__left">
             <div class="remodal__img">
-              <img src="img/remodal-bg.jpg" alt="">
+              <img src="img/remodal-bg.jpg" alt="" />
               <div class="remodal__img-overflow">
                 <div class="remodal__img-block">
                   <div class="remodal__img-title">Полученная стоимость</div>
@@ -378,7 +427,7 @@
     </div>
     <!-- END content -->
     <!-- BEGIN scripts -->
-    <script type="text/javascript" src="js/app.js?ver=1.2"></script>
+    <script type="text/javascript" src="js/app.js?ver=1.21"></script>
     <!-- END scripts -->
   </body>
 </html>

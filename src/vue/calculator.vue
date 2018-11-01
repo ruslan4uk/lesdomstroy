@@ -1,7 +1,7 @@
-<template>
-    <div id="calculator">
+<template lang="html">
+    <section class="calculator" id="calculator">
     <div class="container">
-        <div class="title title--white">Посчитайте стоимость дома или бани {{ user.name }}</div>
+        <div class="title title--white">Посчитайте стоимость дома или бани</div>
         <div class="calculator__navs">
             <div class="calculator__nav calculator__nav--active">1</div>
             <div class="calculator__nav">2</div>
@@ -14,7 +14,12 @@
         <div class="calculator__subtitle">Выберите материал</div>
 
         <div class="calculator__list">
-            <div class="calculator__item">
+            <calculator-item 
+                v-for="steps in step"
+                v-bind:step="step"
+                v-bind:key="step.id">
+            </calculator-item>
+            <!-- <div class="calculator__item">
                 <label for="calc2-1" class="calculator__img">
                     <img src="img/calculator/2-1.svg" alt="" />
                 </label>
@@ -49,23 +54,27 @@
                     <input type="radio" id="calc2-4" name="calc2" value="" />
                     <label for="calc2-4">Обрезной брус</label>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <div class="calculator__btn">
             <a href="#" class="btn btn--center">Далее</a>
         </div>
     </div>
-</div>
+</section>
 </template>
 
 <script>
     const Calculator = {
-      data: () => ({
-        user: {
-          name: 'John Doe'
-        }
-      })
+        data: () => ({
+            steps: [
+                {id: 1, name: 'Оцилиндрованное бревно', svg: '2-1'},
+                {id: 2, name: 'Оцилиндрованное бревно', svg: '2-1'},
+                {id: 3, name: 'Оцилиндрованное бревно', svg: '2-1'},
+            ]
+        }),
+        
+
     };
     export default Calculator; // Works
 </script>

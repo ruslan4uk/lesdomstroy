@@ -35,12 +35,17 @@
 					&:nth-child(2)
 						opacity: 0
 	&__logo
-		display: inline-block
-		padding: 0.25rem 0
+		display: flex
+		align-items: center
+		align-content: center
 		+rmin($md)
 			display: none
 		& img
-			width: 8.5rem
+			width: 3.5rem
+			margin-right: 1rem
+		& span 
+			color: #ffffff
+			font-weight: 700
 	&__mphone
 		display: inline-block
 		+rmin($md)
@@ -83,6 +88,7 @@
 		padding-left: 2rem
 		padding-right: 1rem
 		font-size: 1.125rem
+		cursor: pointer
 		+rmin($md)
 			margin-left: 4.25rem
 			font-size: 1rem
@@ -152,14 +158,23 @@
 	position: fixed
 	z-index: 3
 	width: 100%
+	height: 100%
+	overflow-y: scroll
+	padding-bottom: 6rem
 	left: calc( -100% - 1rem )
 	+tr(all ease 0.3s)
 	+rmin($md) 
 		display: block
 		position: relative
 		left: 0
+		height: auto
+		overflow-y: visible
+		padding-bottom: 0.5rem
+	& * 
+		list-style: none 
 	&.is-open
 		transform: translateX(calc(100% + 1rem))
+		background: #2E2423
 		+rmin($md)
 			transform: none
 	&--main
@@ -170,27 +185,41 @@
 		align-items: center
 		justify-content: space-between
 	&__logo
-		max-width: 11rem
+		width: 100%
+		max-width: 14rem
 		display: none
 		+rmin($md)
 			display: block
+		& a 
+			display: flex
+			align-content: center 
+			align-items: center
 		& img 
-			width: 100%
+			width: 4rem
+			margin-right: 0.75rem
+		& span 
+			font-weight: 700
+			color: #ffffff
 	&__menu
 		display: flex
+		justify-content: space-between
 		align-items: center
-		//margin-top: 0.5rem
+		+rmin($md)	
+			width: calc(100% - 17rem)
 	&__list
 		display: flex
 		flex-wrap: wrap
 		align-items: center
 		padding: 0.5rem 0
+		width: 100%
+		justify-content: space-between
+		position: relative
 		+rmin($md)
 			padding: 0
 			flex-wrap: nowrap
 	&__item
 		padding: 0.5rem 0
-		position: relative
+		//position: relative
 		width: 100%
 		+rmin($md)
 			width: auto
@@ -198,6 +227,10 @@
 			margin-left: 0.5rem
 		+rmin($lg)
 			margin-left: 1.5rem
+	&__item:hover &__submenu
+		display: block
+	&__item:hover .sub
+		display: block !important
 	&__link
 		color: #ffffff
 		position: relative
@@ -235,7 +268,7 @@
 		background: #312323
 		padding: 0 0 0rem 0
 		display: none
-		min-width: 14rem
+		//min-width: 20rem
 		left: -1.5rem
 		+rmin($md)
 			position: absolute
@@ -247,6 +280,8 @@
 			margin: 0.25rem 1rem
 			& a
 				font-weight: 300
+				+rmin($md)
+					white-space: nowrap
 	&__shadow
 		box-shadow: 0 0 3px 3px rgba(0,0,0,.1)
 		background: #2E2423
@@ -281,6 +316,59 @@
 			height: 2rem
 			margin-right: 1rem
 			display: block
+
+// Submenu ver 2
+.sub
+	padding-top: 1rem
+	width: 100%
+	display: none
+	+rmin($md)
+		position: absolute
+		left: 0
+	&__wrap
+		display: flex
+		flex-wrap: wrap
+		width: 100%
+		justify-content: space-between
+		background: #ffffff
+		padding: 1.5rem 2rem
+		box-shadow: 0 0 5px 5px rgba(0,0,0,.1)
+	&__list
+		width: 100%
+		margin-bottom: 2rem
+		+rmin($sm)
+			width: calc(50% - 2rem)
+		+rmin($md)
+			width: calc(33.333% - 2rem)
+			margin-bottom: 0rem
+		&:last-child
+			margin-bottom: 0
+	&__title
+		font-weight: 700
+		padding: 0.5rem 0
+		position: relative
+		margin-bottom: 1rem
+		&:after
+			content: ''
+			left: 0
+			position: absolute
+			width: 3rem
+			height: 2px
+			bottom: 0
+			background: $firstColor
+		& a 
+			color: #000000
+			+tr(all ease 0.2s)
+			&:hover
+				color: $firstColor
+	&__item
+		padding: 0.375rem 0
+		& a 
+			color: #000000
+			font-size: 0.925rem
+			+tr(all ease 0.2s)
+			&:hover
+				color: $firstColor
 		
 		
 // main slider
@@ -300,11 +388,13 @@
 		line-height: 1.4
 		text-align: center
 		+rmin($xs)
-			padding-top: 4rem
+			padding-top: 2rem
 			font-size: 3rem
 			line-height: 4rem
 			max-width: 45rem
 			text-align: left
+		+rmin($lg)
+			padding-top: calc(50vh - 350px)
 	&__postitle
 		display: flex
 		justify-content: space-between
@@ -433,71 +523,128 @@
 		display: flex
 		flex-wrap: wrap
 		justify-content: space-between
+		&--big 
+			width: 100%
+			+rmin($md)
+				width: calc(100% - 40% - 0.5rem)
 	&__col
 		width: 100%
-		+rmin($sm)
-			width: calc(50% - 0.5rem)
 		margin-bottom: 1rem
+		+rmin($xs)
+			width: calc(50% - 0.5rem)
+		+rmin($md)
+			width: calc(50% - 0.5rem)
+		&--big 
+			width: 100%
+			+rmin($xs)
+				width: 100%
+			+rmin($md)
+				width: calc(40% - 0.5rem)
 	&__block
+		display: block
+		position: relative
+		background-position: center center
+		background-size: cover
+		background-repeat: no-repeat
+		height: 14rem
+		&--big 
+			height: 14rem
+			+rmin($md)
+				height: 29rem
+	&__overflow
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
 		display: flex
+		align-content: flex-end
 		align-items: flex-end
 		justify-content: center
-		text-align: center
+		justify-items: center
+		padding: 1rem
 		color: #ffffff
+		font-size: 1.25rem
 		font-family: 'Roboto Condensed'
 		font-weight: 700
-		font-size: 1.25rem
-		background-size: cover
-		padding: 0.75rem 2rem 1rem
-		line-height: 1.2
-		height: 22rem
-		position: relative
-		+tr(transform ease 0.2s)
-		&:after
-			opacity: 0.75
-			position: absolute
-			content: ' '
-			top: 0
-			left: 0
-			width: 100%
-			height: 100%
-			background: -moz-linear-gradient(top, rgba(135,224,253,0) 0%, rgba(65,108,121,0.13) 52%, rgba(0,0,0,1) 100%)
-			background: -webkit-linear-gradient(top, rgba(135,224,253,0) 0%,rgba(65,108,121,0.13) 52%,rgba(0,0,0,1) 100%)
-			background: linear-gradient(to bottom, rgba(135,224,253,0) 0%,rgba(65,108,121,0.13) 52%,rgba(0,0,0,1) 100%)
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0087e0fd', endColorstr='#000000',GradientType=0 )
+		background: -moz-linear-gradient(top, rgba(135,224,253,0) 0%, rgba(65,108,121,0.13) 52%, rgba(0,0,0,0.75) 100%)
+		background: -webkit-linear-gradient(top, rgba(135,224,253,0) 0%,rgba(65,108,121,0.13) 52%,rgba(0,0,0,0.75) 100%)
+		background: linear-gradient(to bottom, rgba(135,224,253,0) 0%,rgba(65,108,121,0.13) 52%,rgba(0,0,0,0.75) 100%)
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0087e0fd', endColorstr='#000000',GradientType=0 )
+		+tr(all ease 0.2s)
 		&:hover
-			transform: scale(1.025)
-		& span 
-			position: relative
-			z-index: 2
-		&--house
-			background-image: url(../img/main-services1.jpg)
-			height: 18rem
-			+rmin($xs)
-				height: 24rem
-			+rmin($sm)
-				height: 30rem
-		&--material
-			background-image: url(../img/main-services2.jpg)
-			height: 18rem
-			+rmin($xs)
-				height: 24rem
-			+rmin($sm)
-				height: 14.5rem
-		&--works
-			background-image: url(../img/main-services3.jpg)
-			height: 18rem
-			+rmin($xs)
-				height: 24rem
-			+rmin($sm)
-				height: 14.5rem
-		&--bathhouse
-			background-image: url(../img/main-services4.jpg)
-			height: 18rem
-			+rmin($xs)
-				height: 24rem
-			+rmin($sm)
-				height: 14.5rem
+			padding-bottom: 2rem
+			background: -moz-linear-gradient(top, rgba(135,224,253,0) 0%, rgba(0,0,0,0.75) 100%)
+			background: -webkit-linear-gradient(top, rgba(135,224,253,0) 0%, rgba(0,0,0,0.75) 100%)
+			background: linear-gradient(to bottom, rgba(135,224,253,0) 0%, rgba(0,0,0,0.75) 100%)
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0087e0fd', endColorstr='#000000',GradientType=0 )
+			
+
+	// &__col
+	// 	width: 100%
+	// 	+rmin($sm)
+	// 		width: calc(50% - 0.5rem)
+	// 	margin-bottom: 1rem
+	// &__block
+	// 	display: flex
+	// 	align-items: flex-end
+	// 	justify-content: center
+	// 	text-align: center
+	// 	color: #ffffff
+	// 	font-family: 'Roboto Condensed'
+	// 	font-weight: 700
+	// 	font-size: 1.25rem
+	// 	background-size: cover
+	// 	padding: 0.75rem 2rem 1rem
+	// 	line-height: 1.2
+	// 	height: 22rem
+	// 	position: relative
+	// 	+tr(transform ease 0.2s)
+	// 	&:after
+	// 		opacity: 0.75
+	// 		position: absolute
+	// 		content: ' '
+	// 		top: 0
+	// 		left: 0
+	// 		width: 100%
+	// 		height: 100%
+	// 		background: -moz-linear-gradient(top, rgba(135,224,253,0) 0%, rgba(65,108,121,0.13) 52%, rgba(0,0,0,1) 100%)
+	// 		background: -webkit-linear-gradient(top, rgba(135,224,253,0) 0%,rgba(65,108,121,0.13) 52%,rgba(0,0,0,1) 100%)
+	// 		background: linear-gradient(to bottom, rgba(135,224,253,0) 0%,rgba(65,108,121,0.13) 52%,rgba(0,0,0,1) 100%)
+	// 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0087e0fd', endColorstr='#000000',GradientType=0 )
+	// 	&:hover
+	// 		transform: scale(1.025)
+	// 	& span 
+	// 		position: relative
+	// 		z-index: 2
+	// 	&--house
+	// 		background-image: url(../img/main-services1.jpg)
+	// 		height: 18rem
+	// 		+rmin($xs)
+	// 			height: 24rem
+	// 		+rmin($sm)
+	// 			height: 30rem
+	// 	&--material
+	// 		background-image: url(../img/main-services2.jpg)
+	// 		height: 18rem
+	// 		+rmin($xs)
+	// 			height: 24rem
+	// 		+rmin($sm)
+	// 			height: 14.5rem
+	// 	&--works
+	// 		background-image: url(../img/main-services3.jpg)
+	// 		height: 18rem
+	// 		+rmin($xs)
+	// 			height: 24rem
+	// 		+rmin($sm)
+	// 			height: 14.5rem
+	// 	&--bathhouse
+	// 		background-image: url(../img/main-services4.jpg)
+	// 		height: 18rem
+	// 		+rmin($xs)
+	// 			height: 24rem
+	// 		+rmin($sm)
+	// 			height: 14.5rem
 
 // main-production
 .main-production
@@ -550,6 +697,8 @@
 		justify-content: center
 		align-items: center
 		flex-direction: column
+		opacity: 1
+		+tr(all ease 0.3s)
 		& img 
 			margin-bottom: 1rem
 			max-width: 3.5rem
@@ -586,6 +735,8 @@
 			height: auto
 			+rmin($md)
 				flex: 0.000000001 0.00000001 20rem
+	&__item--is-active &__block
+		opacity: 0 
 	
 
 
@@ -624,6 +775,7 @@
 		margin-top: -3rem	
 	&__item
 		position: relative
+		overflow: hidden
 	&__info
 		opacity: 1
 		+tr(opacity ease 0.3s)
@@ -631,7 +783,7 @@
 		position: absolute
 		top: 0
 		width: 100%
-		height: 100%
+		height: calc(100% + 4px)
 		padding: 1rem
 		display: flex
 		flex-wrap: wrap
@@ -980,14 +1132,14 @@
 	background-repeat: no-repeat
 	background-size: cover
 	position: relative
-	&:after
-		content: ' '
-		position: absolute
-		top: 0
-		left: 0
-		width: 100%
-		height: 100%
-		background: rgba(0,0,0,.7)
+	// &:after
+	// 	content: ' '
+	// 	position: absolute
+	// 	top: 0
+	// 	left: 0
+	// 	width: 100%
+	// 	height: 100%
+	// 	background: rgba(0,0,0,.7)
 	& > .container
 		position: relative
 		z-index: 2
@@ -1002,6 +1154,43 @@
 
 // content
 .content
+	&__table .table
+		margin-top: 0
+		margin-bottom: 0
+		& tr 
+			& td
+				&:first-child
+					width: 20rem
+				&:last-child
+					width: 7rem
+		
+	&__table-title 
+		padding: 1rem
+		margin-bottom: 0 !important
+		text-align: center
+		background: #ffe5bc
+	& ul 
+		list-style: disc
+		margin-left: 20px
+		margin-bottom: 1.5rem
+		& li 
+			padding: 0
+			margin: 0.5rem 0
+			font-size: 1rem
+			font-family: 'Roboto'
+			&:after
+				display: none
+	& ol 
+		list-style: decimal
+		margin-left: 20px
+		margin-bottom: 1.5rem
+		& li 
+			padding: 0
+			margin: 0.5rem 0
+			font-size: 1rem
+			font-family: 'Roboto'
+	& h1, & h2, & h3, & h4, & h5, & h6 
+		margin-bottom: 1rem
 	&__wrap
 		display: flex
 		flex-wrap: wrap
@@ -1021,6 +1210,29 @@
 		margin-bottom: 3rem
 		+rmin($md)
 			width: calc(50%)
+		& ul
+			list-style: none
+			& li 
+				margin-bottom: 1.5rem
+				margin-top: 0
+				font-family: 'Roboto Condensed'
+				font-size: 1.25rem
+				position: relative
+				padding-left: 1.5rem
+				line-height: 1.3
+				&:before
+					content: ' '
+					width: 0.675rem
+					height: 0.675rem
+					border-radius: 50%
+					background: $firstColor
+					position: absolute
+					top: 0.375rem
+					left: 0
+				& span 
+					font-weight: 700
+	&__full
+		width: 100%
 	& blockquote
 		font-family: 'Roboto Condensed'
 		font-weight: 700
@@ -1031,26 +1243,7 @@
 			padding-left: 1rem
 			border-left: 2px solid $firstColor
 			text-align: left
-	& ul 
-		list-style: none
-		& li 
-			margin-bottom: 1.5rem
-			font-family: 'Roboto Condensed'
-			font-size: 1.25rem
-			position: relative
-			padding-left: 1.5rem
-			line-height: 1.3
-			&:after
-				content: ' '
-				width: 0.675rem
-				height: 0.675rem
-				border-radius: 50%
-				background: $firstColor
-				position: absolute
-				top: 0.375rem
-				left: 0
-			& span 
-				font-weight: 700
+	
 	&__head
 		max-height: 25rem
 		overflow: hidden
@@ -1086,26 +1279,7 @@
 			margin-bottom: 1rem
 			font-size: 1.25rem
 			font-weight: 500
-		& ul 
-			list-style: disc
-			margin-left: 20px
-			margin-bottom: 1.5rem
-			& li 
-				padding: 0
-				margin: 0.5rem 0
-				font-size: 1rem
-				font-family: 'Roboto'
-				&:after
-					display: none
-		& ol 
-			list-style: decimal
-			margin-left: 20px
-			margin-bottom: 1.5rem
-			& li 
-				padding: 0
-				margin: 0.5rem 0
-				font-size: 1rem
-				font-family: 'Roboto'
+		
 		& img 
 			max-width: 100%
 			margin-bottom: 1rem
@@ -1138,6 +1312,46 @@
 				height: 1rem
 				bottom: 0.5rem
 				right: 0.5rem
+
+
+.harv
+	margin-top: 2rem
+	width: 100%
+	+rmin($sm)
+		margin-bottom: 2rem
+	&--border 
+		border: 1px solid #cccccc
+		padding: 2rem 2rem 0 2rem
+		margin-bottom: 3rem
+	&__title
+		font-family: 'Roboto Condensed'
+		font-size: 1.325rem
+		font-weight: bold
+		text-align: center
+		margin-bottom: 3rem
+	&__subtitle
+		font-weight: 500
+		text-align: center
+	&__list
+		display: flex
+		flex-wrap: wrap
+		justify-content: center
+	&__img
+		padding: 0 2rem
+		margin: 0 auto 1rem
+		& img
+			border: 2px solid $firstColor
+			border-radius: 50% 50%
+			margin: 0 auto
+		&--felling
+			& img
+				border: 0
+				border-radius: 0
+				height: 6rem
+	&__item 
+		padding: 0 1rem
+		max-width: 16rem
+		margin-bottom: 2rem
 
 
 // contact
@@ -1194,6 +1408,10 @@
 			display: none
 			&.is-active
 				display: block
+	&__map
+		display: none
+		&.is-active 
+			display: block
 	
 
 
@@ -1278,6 +1496,7 @@
 			position: relative
 			top: 0
 			transform: none
+			margin: 0
 		&.is-open
 			transform: translateX(0)
 	&__right
@@ -1540,6 +1759,8 @@
 		align-items: center
 		flex-direction: column
 		padding-bottom: 1rem
+		opacity: 1
+		+tr(all ease 0.3s)
 		+rmin($md)
 			padding-bottom: 2rem
 		& img 
@@ -1578,6 +1799,8 @@
 			height: auto
 			+rmin($md)
 				flex: 0.000000001 0.00000001 20rem
+	&__item--is-active &__block
+		opacity: 0
 
 
 

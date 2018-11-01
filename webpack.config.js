@@ -3,6 +3,8 @@ const path = require('path');
 const util = require('gulp-util');
 const config = require('./gulp/config');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
 
 function createConfig(env) {
   let isProduction,
@@ -35,6 +37,8 @@ function createConfig(env) {
       //     filename: '[name].js',
       //     minChunks: Infinity
       // }),
+      new VueLoaderPlugin(),
+
       new webpack.LoaderOptionsPlugin({
         options: {
           eslint: {
@@ -72,6 +76,11 @@ function createConfig(env) {
     },
     module: {
       rules: [
+        // { loader: require.resolve('./debugger') },
+        {
+          test: /\.vue$/,
+          loader: 'vue-loader'
+        },
         {
           enforce: 'pre',
           test: /\.js$/,

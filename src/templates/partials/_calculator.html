@@ -1,62 +1,215 @@
-<section id="calculator">
-
-</section>
-
-{# <section class="calculator">
+<section class="calculator" id="calculator">
     <div class="container">
-        <div class="title title--white">Посчитайте стоимость дома или бани {{ message }}</div>
-        <div class="calculator__navs">
-            <div class="calculator__nav calculator__nav--active">1</div>
-            <div class="calculator__nav">2</div>
-            <div class="calculator__nav">3</div>
-            <div class="calculator__nav">4</div>
-            <div class="calculator__nav">5</div>
-            <div class="calculator__nav">6</div>
+        <div class="title title--white">Посчитайте стоимость дома или бани</div>
+        <div class="calculator__navs" id="js--calculator-nav">
+            <div class="calculator__nav calculator__nav--active" data-calculator-nav="1">1</div>
+            <div class="calculator__nav" data-calculator-nav="2">2</div>
+            <div class="calculator__nav" data-calculator-nav="3">3</div>
+            <div class="calculator__nav" data-calculator-nav="4">4</div>
+            <div class="calculator__nav" data-calculator-nav="5">5</div>
+            <div class="calculator__nav" data-calculator-nav="6">6</div>
         </div>
 
-        <div class="calculator__subtitle">Выберите материал</div>
-
-        <div class="calculator__list">
-            <div class="calculator__item">
-                <label for="calc2-1" class="calculator__img">
-                    <img src="img/calculator/2-1.svg" alt="" />
-                </label>
-                <div class="calculator__radio">
-                    <input type="radio" id="calc2-1" name="calc2" value="" />
-                    <label for="calc2-1">Оцилиндрованное бревно</label>
-                </div>
-            </div>
-            <div class="calculator__item">
-                <label for="calc2-2" class="calculator__img">
-                    <img src="img/calculator/2-2.svg" alt="" />
-                </label>
-                <div class="calculator__radio">
-                    <input type="radio" id="calc2-2" name="calc2" value="" />
-                    <label for="calc2-2">Профилированный брус</label>
-                </div>
-            </div>
-            <div class="calculator__item">
-                <label for="calc2-3" class="calculator__img">
-                    <img src="img/calculator/2-3.svg" alt="" />
-                </label>
-                <div class="calculator__radio">
-                    <input type="radio" id="calc2-3" name="calc2" value="" />
-                    <label for="calc2-3">Клееный брус</label>
-                </div>
-            </div>
-            <div class="calculator__item">
-                <label for="calc2-4" class="calculator__img">
-                    <img src="img/calculator/2-4.svg" alt="" />
-                </label>
-                <div class="calculator__radio">
-                    <input type="radio" id="calc2-4" name="calc2" value="" />
-                    <label for="calc2-4">Обрезной брус</label>
+        <form>
+        <div class="calculator__step" data-calculator-step="1">
+            <div class="calculator__subtitle">Выберите площадь</div>
+            <div class="calculator__list">
+                <div class="calculator__range">
+                    <div class="calculator__range-value"><input type="text" min="1" max="1000" value="150" name="" id="calculator__value" /> кв.м.</div>
+                    <input type="range" min="10" max="1000" value="150" class="calculator__slider" id="calculator__slider" />
                 </div>
             </div>
         </div>
+        
+        <div class="calculator__step" data-calculator-step="2">
+            <div class="calculator__subtitle">Выберите материал</div>
+            <div class="calculator__list">
+                <div class="calculator__item">
+                    <label for="calc2-1" class="calculator__img">
+                        <img src="img/calculator/2-1.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc2-1" name="calc2" value="" />
+                        <label for="calc2-1">Оцилиндрованное бревно</label>
+                    </div>
+                </div>
+                <div class="calculator__item">
+                    <label for="calc2-2" class="calculator__img">
+                        <img src="img/calculator/2-2.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc2-2" name="calc2" value="" />
+                        <label for="calc2-2">Профилированный брус</label>
+                    </div>
+                </div>
+                <div class="calculator__item">
+                    <label for="calc2-3" class="calculator__img">
+                        <img src="img/calculator/2-3.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc2-3" name="calc2" value="" />
+                        <label for="calc2-3">Клееный брус</label>
+                    </div>
+                </div>
+                <div class="calculator__item">
+                    <label for="calc2-4" class="calculator__img">
+                        <img src="img/calculator/2-4.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc2-4" name="calc2" value="" />
+                        <label for="calc2-4">Обрезной брус</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="calculator__step" data-calculator-step="3">
+            <div class="calculator__subtitle">Выберите фундамент</div>
+            <div class="calculator__list">
+                <div class="calculator__item">
+                    <label for="calc3-1" class="calculator__img">
+                        <img src="img/calculator/3-1.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc3-1" name="calc3" value="" />
+                        <label for="calc3-1">Винтовой</label>
+                    </div>
+                </div>
+                <div class="calculator__item">
+                    <label for="calc3-2" class="calculator__img">
+                        <img src="img/calculator/3-2.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc3-2" name="calc3" value="" />
+                        <label for="calc3-2">Ленточный</label>
+                    </div>
+                </div>
+                <div class="calculator__item">
+                    <label for="calc3-3" class="calculator__img">
+                        <img src="img/calculator/3-3.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc3-3" name="calc3" value="" />
+                        <label for="calc3-3">Буронабивной</label>
+                    </div>
+                </div>
+                <div class="calculator__item">
+                    <label for="calc3-4" class="calculator__img">
+                        <img src="img/calculator/3-4.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc3-4" name="calc3" value="" />
+                        <label for="calc3-4">Плитный</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="calculator__step" data-calculator-step="4">
+            <div class="calculator__subtitle">Выберите этажность</div>
+            <div class="calculator__list">
+                <div class="calculator__item">
+                    <label for="calc4-1" class="calculator__img">
+                        <img src="img/calculator/4-1.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc4-1" name="calc4" value="" />
+                        <label for="calc4-1">Один этаж</label>
+                    </div>
+                </div>
+                <div class="calculator__item">
+                    <label for="calc4-2" class="calculator__img">
+                        <img src="img/calculator/4-2.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc4-2" name="calc4" value="" />
+                        <label for="calc4-2">Один этаж с мансардой</label>
+                    </div>
+                </div>
+                <div class="calculator__item">
+                    <label for="calc4-3" class="calculator__img">
+                        <img src="img/calculator/4-3.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc4-3" name="calc4" value="" />
+                        <label for="calc4-3">Два этажа</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="calculator__step" data-calculator-step="5">
+            <div class="calculator__subtitle">Выберите крышу</div>
+            <div class="calculator__list">
+                <div class="calculator__item">
+                    <label for="calc5-1" class="calculator__img">
+                        <img src="img/calculator/5-1.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc5-1" name="calc5" value="" />
+                        <label for="calc5-1">Односкатная</label>
+                    </div>
+                </div>
+                <div class="calculator__item">
+                    <label for="calc5-2" class="calculator__img">
+                        <img src="img/calculator/5-2.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc5-2" name="calc5" value="" />
+                        <label for="calc5-2">Двускатная</label>
+                    </div>
+                </div>
+                <div class="calculator__item">
+                    <label for="calc5-3" class="calculator__img">
+                        <img src="img/calculator/5-3.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc5-3" name="calc5" value="" />
+                        <label for="calc5-3">Вальмовая</label>
+                    </div>
+                </div>
+                <div class="calculator__item">
+                    <label for="calc5-4" class="calculator__img">
+                        <img src="img/calculator/5-4.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc5-4" name="calc5" value="" />
+                        <label for="calc5-4">Сложная</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="calculator__step" data-calculator-step="6">
+            <div class="calculator__subtitle">Выберите вид крыши</div>
+            <div class="calculator__list">
+                <div class="calculator__item">
+                    <label for="calc6-1" class="calculator__img">
+                        <img src="img/calculator/6-1.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc6-1" name="calc6" value="" />
+                        <label for="calc6-1">Мягкая</label>
+                    </div>
+                </div>
+                <div class="calculator__item">
+                    <label for="calc6-2" class="calculator__img">
+                        <img src="img/calculator/6-2.svg" alt="" />
+                    </label>
+                    <div class="calculator__radio">
+                        <input type="radio" id="calc6-2" name="calc6" value="" />
+                        <label for="calc6-2">Металлическая</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        </form>
 
         <div class="calculator__btn">
-            <a href="#" class="btn btn--center">Далее</a>
+            <a href="#" class="btn btn--center" id="js--calculator-next" data-calculator-current="1">Далее</a>
         </div>
     </div>
-</section> #}
+</section>
