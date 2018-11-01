@@ -34,6 +34,20 @@ a
 p 
 	margin-bottom: 1rem
 
+section 
+    padding-top: 2rem
+    padding-bottom: 2rem
+    +rmin($sm)
+        padding-top: 3rem
+        padding-bottom: 3rem
+
+.mt-0
+    margin-top: 0 !important
+.mb-0
+    margin-bottom: 0 !important
+.pt-0
+    padding-top: 0 !important
+
 .container
     width: 100%
     max-width: 540px
@@ -52,11 +66,25 @@ p
     font-size: 1.75rem
     color: #000000
     text-align: center
-    margin-bottom: 3rem
+    margin-bottom: 2rem
     +rmin($sm)
         font-size: 2.5rem
+        margin-bottom: 3rem
     &--white
         color: #ffffff
+    &--order
+        font-size: 1.25rem
+        margin-bottom: 1.5rem
+        +rmin($sm)
+            font-size: 1.5rem
+
+.subtitle
+    font-family: 'Roboto Condensed'
+    font-size: 1.5rem
+    font-weight: 700
+    margin-bottom: 1.5rem
+    &--center 
+        text-align: center
 
 // BTN
 .btn
@@ -118,6 +146,7 @@ p
         padding: 0.25rem 0
         margin-bottom: 1.5rem
         text-align: center
+        background: transparent
         +tr(all ease 0.2s)
         +rmin($xs)
             margin-bottom: 0
@@ -128,5 +157,236 @@ p
             width: 100%
             +rmin($xs)
                 width: calc(33.33% - 1rem)
+        &--white
+            color: #ffffff
+            &::placeholder 
+                color: #cccccc
+
+// table    
+.table-overflow
+    width: 100%
+    overflow-x: auto
+.table
+    width: 100%
+    margin-top: 1rem
+    margin-bottom: 1rem
+    font-family: 'Roboto'
+    font-size: 1rem
+    & thead 
+        background: rgba(223,188,130,.3)
+        & th
+            padding: 1rem
+            text-align: left
+        & tr 
+            border: none
+    & td
+        padding: 1rem
+        text-align: left
+    & tr 
+        border-bottom: 1px solid #aaaaaa
+    &__order
+        color: #000000
+        border-bottom: 1px solid $firstColor
+        +tr(all ease 0.2s)
+        &:hover
+            border-bottom: 1px solid transparent
+            color: $firstColor
 
 
+// tabs
+.tabs
+    list-style: none
+    width: 100%
+    margin-top: 1.5rem
+    margin-bottom: 1.5rem
+    &__lists
+        margin-bottom: 0 !important
+        &:nth-child(2n) 
+            & a 
+                background: #ffffff !important
+    & li 
+        list-style: none
+        padding: 0
+        margin-left: 0 !important
+        padding-left: 0 !important
+        &:after
+            display: none
+    &__link
+        padding: 1rem
+        font-weight: 700
+        background: rgba(223,188,130,.3)
+        width: 100%
+        display: block
+        color: #000000
+        position: relative
+        &:after
+            content: ' '
+            position: absolute
+            width: 1.5rem
+            height: 1.5rem
+            top: 0.75rem
+            right: 2rem
+            background-image: url(../img/icon/arr.svg)
+            background-size: cover
+            transform: rotate(-90deg)
+            +tr(all ease 0.2s)
+        &--is-open 
+            &:after
+                transform: rotate(90deg)
+                top: 1.25rem
+    &__item
+        height: 0
+        overflow: hidden
+        +tr(all ease 0.3s)
+
+
+// filter
+.filter
+    padding: 1.5rem
+    margin-bottom: 2rem
+    max-width: 540px
+    margin: 0 auto
+    +rmin($sm)
+        border: 2px solid $firstColor
+        max-width: 720px
+    &__block
+        margin-bottom: 2rem
+    &__title
+        font-size: 1.25rem
+        font-family: 'Roboto'
+        font-weight: 700
+        margin-bottom: 0.75rem
+        position: relative
+        +rmin($md)
+            padding-left: 1.5rem
+            &:after
+                content: ' '
+                width: 1rem
+                height: 2px
+                background: $firstColor
+                position: absolute
+                top: calc(50% - 1px)
+                left: 0
+    &__checkbox
+        border: 1px solid $firstColor
+        width: 1.5rem
+        height: 1.5rem
+        margin-right: 0.5rem
+        display: none
+        +rmin($sm)
+            width: 1rem
+            height: 1rem
+    &__checkbox-label
+        padding-left: 2rem
+        position: relative
+        margin-bottom: 1rem
+        display: block
+        font-size: 1.125rem
+        +rmin($sm)
+            padding-left: 1.5rem
+            margin-bottom: 0.5rem
+            font-size: 1rem
+        &:after
+            content: ' '
+            position: absolute
+            left: 0
+            bottom: 0.25rem
+            width: 1.25rem
+            height: 1.25rem
+            border: 2px solid $firstColor
+            +rmin($sm)
+                width: 1rem
+                height: 1rem
+    &__checkbox:checked + &__checkbox-label:before
+        content: ' '
+        position: absolute
+        left: 4px
+        bottom: calc(0.25rem + 4px)
+        width: calc(1.5rem - 12px)
+        height: calc(1.5rem - 12px)
+        background: $firstColor
+        +rmin($sm)
+            width: calc(1rem - 8px)
+            height: calc(1rem - 8px)
+
+
+
+// remodal
+.remodal
+    padding: 0
+    max-width: 500px !important
+    +rmin($md)
+        max-width: 900px !important
+    &__wrap
+        display: flex
+        flex-wrap: wrap
+    &__left
+        width: 100%
+        +rmin($md)
+            width: 50%
+        & img 
+            margin: 0
+            padding: 0
+    &__img
+        position: relative
+        &-overflow 
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            display: flex
+            justify-content: center
+            align-content: center
+            align-items: center
+        &-block 
+            border-bottom: 2px solid $firstColor
+        &-title 
+            font-size: 1.375rem
+            font-weight: 700
+            font-family: 'Roboto Condensed'
+            color: #ffffff
+            margin-bottom: 1rem
+    &__right
+        padding: 2rem
+        display: flex
+        justify-content: center
+        align-items: center
+        align-content: center
+        flex-wrap: wrap
+        width: 100%
+        +rmin($md)
+            width: 50%
+    &__title
+        font-size: 1.25rem
+        font-family: 'Roboto Condensed'
+        font-weight: 700
+        text-align: center
+        margin-bottom: 1rem
+        width: 100%
+    &__subtitle
+        text-align: center
+        width: 100%
+    &__form 
+        max-width: 18rem
+        margin-top: 1rem
+        text-align: center
+        & input
+            width: 100%
+            margin-bottom: 1rem
+            text-align: center
+            font-size: 0.875rem
+        & button
+            margin-top: 1rem
+    &-close 
+        right: 0
+        left: auto
+        &:before
+            color: #ffffff
+            z-index: 2
+            font-size: 3rem
+            line-height: 3rem
+            +rmin($md)
+                color: #000000
+                font-size: 2.5rem
+                line-height: 2.5rem

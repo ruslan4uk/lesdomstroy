@@ -1,0 +1,197 @@
+---
+title: Главная страница
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	
+	{# partial example #}
+	{% include "partials/_top.html" %}
+
+    <section class="project">
+        <div class="container">
+            <div class="project__top title">Элитный -24</div>
+            <div class="project__wrap">
+                <div class="project__left">
+                    <div class="project__gallery">
+                        <div class="project__slider owl-carousel" id="gallery">
+                            <div class="prodect__slider-item">
+                                <img src="img/project/slide.png" alt="">
+                            </div>
+                            <div class="prodect__slider-item">
+                                <img src="img/project/slide.png" alt="">
+                            </div>
+                            <div class="prodect__slider-item">
+                                <img src="img/project/slide.png" alt="">
+                            </div>
+                            <div class="prodect__slider-item">
+                                <img src="img/project/slide.png" alt="">
+                            </div>
+                        </div>
+                        <div class="project__thumbs">
+                            <div class="owl-carousel" id="thumbs">
+                                <div class="project__thumbs-item">
+                                    <img src="img/project/slide.png" alt="">
+                                </div>
+                                <div class="project__thumbs-item">
+                                    <img src="img/project/slide.png" alt="">
+                                </div>
+                                <div class="project__thumbs-item">
+                                    <img src="img/project/slide.png" alt="">
+                                </div>
+                                <div class="project__thumbs-item">
+                                    <img src="img/project/slide.png" alt="">
+                                </div>
+                            </div>
+                            <div class="project__thumbs-nav">
+                                <div class="project__thumbs-arr project__thumbs-arr--left"></div>
+                                <div class="project__thumbs-arr project__thumbs-arr--right"></div>                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project__right">
+                    <div class="project__title">Элитный -24</div>
+                    <div class="project__characteristics characteristics">
+                        <div class="characteristics__item">
+                            <div class="characteristics__icon">
+                                <img src="img/project/price.svg" alt="">
+                            </div>
+                            <div class="characteristics__text">Цена: <span>777 777 рублей</span></div>
+                        </div>
+                        <div class="characteristics__item">
+                            <div class="characteristics__icon">
+                                <img src="img/project/material.svg" alt="">
+                            </div>
+                            <div class="characteristics__text">Материал: <span>оцилиндрованное бревно</span></div>
+                        </div>
+                        <div class="characteristics__item">
+                            <div class="characteristics__icon">
+                                <img src="img/project/area.svg" alt="">
+                            </div>
+                            <div class="characteristics__text">Площадь: <span>121 кв. м.</span></div>
+                        </div>
+                        <div class="characteristics__item">
+                            <div class="characteristics__icon">
+                                <img src="img/project/price.svg" alt="">
+                            </div>
+                            <div class="characteristics__text">Этажность: <span>1 этаж + мансарда</span></div>
+                        </div>
+                    </div>
+                    <div class="project__description">
+                        <p>Наша компания занимается разработкой индивидуальных проектов 
+                        загородных домов. Индивидуальный проект дома - это проект дома, 
+                        разработанный персонально для Вас. Наши специалисты учтут все 
+                        Ваши пожелания при разработке проекта. В техническом задании 
+                        Вы сможете заказать достаточный для Вас объем чертежей, что 
+                        позволит уменьшить стоимость проекта. </p>
+                        <p>Мы будем согласовывать различные технические моменты, приглашая 
+                        Вас в офис для уточнения деталей или другим способом дистанционно. 
+                        По завершению проектирования Вы получите готовый проект - альбом 
+                        формата А3, объёмом примерно 15-150 листов (в зависимости от размера 
+                        дома, сложности конструкций и Ваших пожеланий). В альбоме будут 
+                        содержаться все необходимые для строительства чертежи и технические 
+                        данные по конструкциям и узлам дома от фундамента до крыши.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blike">
+        <div class="container">
+            <div class="blike__block">
+                <div class="blike__wrap">
+                    <div class="blike__title">Понравился проект?</div>
+                    <a href="#" class="btn">Заказать проект</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="inp">
+        <div class="container">
+            <div class="inp__top-title">Что входит в проект?</div>
+            <div class="inp__wrap">
+                <div class="inp__item inp__item--is-active">
+					<div class="inp__block">
+						<img src="img/project/i1.svg" alt="" />
+						<div class="inp__title">1. Стеновой комплект</div>
+					</div>
+					<div class="inp__text">
+						<p>
+							Заготавливаем древесину в Кировской области преимущественно с ноября 
+							по март. Площадь наших участков
+							под вырубку около 120 га. Отбираем дефектные бревна и отправляем на
+							обработку только высококачественное
+							сырье. Производство пиломатериалов полного цикла находится в Ижевске. Обрабатываем сырье для постройки
+							домов и бань по ГОСТу. Продукция
+							проходит сертификацию, а также соответствует экологическим
+							и функциональным нормам.
+						</p>
+					</div>
+				</div>
+                <div class="inp__item">
+					<div class="inp__block">
+						<img src="img/project/i2.svg" alt="" />
+						<div class="inp__title">2. Проектная документация</div>
+					</div>
+					<div class="inp__text">
+						<p>
+							Заготавливаем древесину в Кировской области преимущественно с ноября 
+							по март. Площадь наших участков
+							под вырубку около 120 га. Отбираем дефектные бревна и отправляем на
+							обработку только высококачественное
+							сырье. Производство пиломатериалов полного цикла находится в Ижевске. Обрабатываем сырье для постройки
+							домов и бань по ГОСТу. Продукция
+							проходит сертификацию, а также соответствует экологическим
+							и функциональным нормам.
+						</p>
+					</div>
+				</div>
+                <div class="inp__item">
+					<div class="inp__block">
+						<img src="img/project/i3.svg" alt="" />
+						<div class="inp__title">3. Кровля</div>
+					</div>
+					<div class="inp__text">
+						<p>
+							Заготавливаем древесину в Кировской области преимущественно с ноября 
+							по март. Площадь наших участков
+							под вырубку около 120 га. Отбираем дефектные бревна и отправляем на
+							обработку только высококачественное
+							сырье. Производство пиломатериалов полного цикла находится в Ижевске. Обрабатываем сырье для постройки
+							домов и бань по ГОСТу. Продукция
+							проходит сертификацию, а также соответствует экологическим
+							и функциональным нормам.
+						</p>
+					</div>
+				</div>
+                <div class="inp__item">
+					<div class="inp__block">
+						<img src="img/project/i4.svg" alt="" />
+						<div class="inp__title">4. Дополнительные услуги</div>
+					</div>
+					<div class="inp__text">
+						<p>
+							Заготавливаем древесину в Кировской области преимущественно с ноября 
+							по март. Площадь наших участков
+							под вырубку около 120 га. Отбираем дефектные бревна и отправляем на
+							обработку только высококачественное
+							сырье. Производство пиломатериалов полного цикла находится в Ижевске. Обрабатываем сырье для постройки
+							домов и бань по ГОСТу. Продукция
+							проходит сертификацию, а также соответствует экологическим
+							и функциональным нормам.
+						</p>
+					</div>
+				</div>
+            </div>
+        </div>
+    </section>
+    
+
+    {% include "partials/_order.html" %}
+
+	{% include "partials/_copyright.html" %}
+
+{% endblock %}

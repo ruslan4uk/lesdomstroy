@@ -1,0 +1,65 @@
+---
+title: Статьи
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	
+	{# partial example #}
+	{% include "partials/_top.html" %}
+
+    <section class="catalog">
+        <div class="container">
+            <div class="title">{{ title }}</div>
+            <div class="catalog__link">
+                <a href="" class="catalog__open-panel">Выбрать параметры</a>
+            </div>
+            
+            <div class="catalog__wrap">
+                <div class="catalog__left">
+                    <div class="catalog__category">
+                        <ul class="catalog__category-lists">
+                            <li class="catalog__category-item">
+                                <a href="#" class="catalog__category-link">Категория 1</a>
+                            </li>
+                            <li class="catalog__category-item">
+                                <a href="#" class="catalog__category-link">Категория 2 в две длинные строки</a>
+                            </li>
+                            <li class="catalog__category-item">
+                                <a href="#" class="catalog__category-link">Категория 3</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-order">
+                        <div class="block-order__title">Отправить свой проект на расчет</div>
+                        <div class="block-order__btn">
+                            <a href="" class="btn btn--revers">Рассчитать стоимость</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog__right">
+                    <div class="catalog__wrap">
+
+                        {% for i in [1,2,3,4] -%}
+                        <a href="" class="catalog__item article">
+                            <div class="article__img">
+                                <img src="img/article.png" alt="">
+                            </div>
+                            <div class="article__title">Дом из профилированного бруса - когда лучше строить?</div>
+                            <div class="article__description">Насущный вопрос для будущих дачников – когда начинать строительство деревянного дома</div>
+                            <div class="article__date">25.07.2017</div>
+                        </a>
+                        {%- endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include "partials/_order.html" %}
+
+	{% include "partials/_copyright.html" %}
+
+{% endblock %}

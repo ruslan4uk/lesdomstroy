@@ -1,0 +1,81 @@
+---
+title: Контакты
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	
+	{# partial example #}
+	{% include "partials/_top.html" %}
+
+    <section class="contact">
+        <div class="container">
+            <div class="title">{{ title }}</div>
+            <div class="contact__wrap">
+                <div class="contact__left">
+                    {# tabs #}
+                    <div class="contact__tabs js--tabs">
+                        <div class="contact__tabs-nav">
+                            <a href="" class="contact__tabs-link is-active" data-nav="izh">Ижевск</a>
+                            <a href="" class="contact__tabs-link" data-nav="kr">Краснодар</a>
+                        </div>
+                        <div class="contact__tabs-body">
+                            <div class="contact__tabs-item is-active" data-item="izh">
+                                <div class="contact__subtitle">Адрес:</div>
+                                <div class="contact__descr">30 лет Победы, дом 2, офис 413</div>
+                                <div class="contact__subtitle">Телефон:</div>
+                                <div class="contact__descr">+7 (3412) 56-90-84</div>
+                                <div class="contact__subtitle">Бесплатный звонок по России:</div>
+                                <div class="contact__descr">8-800-234-90-84</div>
+                                <div class="contact__subtitle">Телефон производства:</div>
+                                <div class="contact__descr">+7 (991) 398-80-01</div>
+                            </div>
+                            <div class="contact__tabs-item" data-item="kr">
+                                <div class="contact__subtitle">Адрес:</div>
+                                <div class="contact__descr">50 лет Победы, дом 2, офис 413</div>
+                                <div class="contact__subtitle">Телефон:</div>
+                                <div class="contact__descr">+7 (111) 222-33-44</div>
+                                <div class="contact__subtitle">Бесплатный звонок по России:</div>
+                                <div class="contact__descr">8-800-234-90-84</div>
+                                <div class="contact__subtitle">Телефон производства:</div>
+                                <div class="contact__descr">+7 (991) 398-80-01</div>
+                            </div>
+                        </div>
+                    </div>
+                    {# endtabs #}
+                    {# contact social #}
+                    <div class="contact__social">
+                        <a href="" class="contact__social-item">
+                            <img src="img/icon/vk-black.svg" alt="">
+                        </a>
+                        <a href="" class="contact__social-item">
+                            <img src="img/icon/inst-black.svg" alt="">
+                        </a>
+                    </div>
+                    {# end contact social #}
+                    <a href="#" class="btn">Свяжитесь с нами</a>
+                </div>
+                <div class="contact__right">
+                    <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=O6SnXHkLp5j3H3NWQFeFC7TxKNdCqT4f&width=100%&height=400"></script>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="contact__wrap">
+                <div class="contact__col">
+                    <div class="contact__subtitle">Производство ручная рубка</div>
+                    <p>Удмуртская респ., с. Сюмси</p>
+                    <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=O6SnXHkLp5j3H3NWQFeFC7TxKNdCqT4f&width=100%&height=400"></script>
+                </div>
+                <div class="contact__col">
+                    <div class="contact__subtitle">Производство - оцилиндрованное бревно</div>
+                    <p>Кировская область, д. Белая Холуница</p>
+                    <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=O6SnXHkLp5j3H3NWQFeFC7TxKNdCqT4f&width=100%&height=400"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	{% include "partials/_copyright.html" %}
+
+{% endblock %}

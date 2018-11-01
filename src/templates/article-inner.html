@@ -1,0 +1,109 @@
+---
+title: Статья
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	
+	{# partial example #}
+	{% include "partials/_top.html" %}
+
+    <section class="catalog">
+        <div class="container">            
+            <div class="catalog__wrap">
+                <div class="catalog__left">
+                    <div class="catalog__category">
+                        <ul class="catalog__category-lists">
+                            <li class="catalog__category-item">
+                                <a href="#" class="catalog__category-link">Категория 1</a>
+                            </li>
+                            <li class="catalog__category-item">
+                                <a href="#" class="catalog__category-link">Категория 2 в две длинные строки</a>
+                            </li>
+                            <li class="catalog__category-item">
+                                <a href="#" class="catalog__category-link">Категория 3</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-order">
+                        <div class="block-order__title">Отправить свой проект на расчет</div>
+                        <div class="block-order__btn">
+                            <a href="" class="btn btn--revers">Рассчитать стоимость</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog__right content">
+                    <div class="content__head">
+                        <img src="img/article.png" alt="">
+                        <div class="content__head-overlay">
+                            <div class="content__head-title title title--white">Дом из профилированного бруса - когда лучше строить?</div>
+                        </div>
+                    </div>
+                    <div class="content__body">
+                        <h3>Подзаголовок</h3>
+                        <p>Один из самых насущных вопросов для будущих дачников – 
+                        это когда начинать строительство деревянного дома. Кто-то говорит 
+                        только летом, кто-то советует – зимой. Давайте разберемся в 
+                        преимуществах и недостатках, влияющих на строительство, каждого 
+                        времени года.</p>
+                        <p>Зима. Начинается зима в наших широтах довольно рано, будем 
+                        считать – в ноябре, а заканчивается в конце марта. Самое долго 
+                        время года J Будущие счастливые дачники не могут понять, можно 
+                        ли в зиму строить дом, как будет вести себя фундамент, брус, 
+                        краска.</p>
+
+                        <h3>Подзаголовок</h3>
+
+                        <ul>
+                            <li>К сожалению, покрывать дом лако-красочными материалами в зиму тоже нельзя.</li>
+                            <li>К сожалению, покрывать дом лако-красочными материалами в зиму тоже нельзя.</li>
+                            <li>Но, при заказе стенокомплекта у поставщика, Вы можете смело попросить проантисептировать брус на заводе.</li>
+                            <li>Этого покрытия вполне хватит до наступления плюсовых температур, чтобы сохранить дом в первозданном виде.</li>
+                        </ul>
+
+                        <img src="img/article.png" alt="">
+
+                        <h3>Подзаголовок</h3>
+
+                        <ol>
+                            <li>К сожалению, покрывать дом лако-красочными материалами в зиму тоже нельзя.</li>
+                            <li>К сожалению, покрывать дом лако-красочными материалами в зиму тоже нельзя.</li>
+                            <li>Но, при заказе стенокомплекта у поставщика, Вы можете смело попросить проантисептировать брус на заводе.</li>
+                            <li>Этого покрытия вполне хватит до наступления плюсовых температур, чтобы сохранить дом в первозданном виде.</li>
+                        </ol>
+
+                        <blockquote>Начнем с фундаментов, в зимний период бетонные фундаменты, 
+                        к сожалению, заливать не рекомендуется. Так что либо у вас с лета 
+                        заготовлен фундамент для будущего дома, либо можно выбрать 
+                        свайно-винтовой фундамент. </blockquote>
+
+                        <p>Зима. Начинается зима в наших широтах довольно рано, будем 
+                        считать – в ноябре, а заканчивается в конце марта. Самое долго 
+                        время года J Будущие счастливые дачники не могут понять, можно 
+                        ли в зиму строить дом, как будет вести себя фундамент, брус, 
+                        краска.</p>
+                        
+                    </div>
+                    <div class="catalog__wrap">
+                        {% for i in [1,2] %}
+                        <a href="" class="catalog__item">
+                            <div class="content__head content__head--item mb-0">
+                                <img src="img/article.png" alt="">
+                                <div class="content__head-overlay">
+                                    <div class="content__head-title content__head-title--small">Название другой статьи, кря-кря-кря</div>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include "partials/_order.html" %}
+
+	{% include "partials/_copyright.html" %}
+
+{% endblock %}

@@ -1,0 +1,78 @@
+---
+title: Главная страница
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	
+	{# partial example #}
+	{% include "partials/_top.html" %}
+
+    <section class="material">
+        <div class="container">
+            <div class="title">Строительные материалы</div>
+            <div class="material__wrap">
+                <a href="" class="material__item">
+                    <img src="img/material/material1.jpg" alt="">
+                    <div class="material__title material__title--abs">Клееный брус</div>
+                    <div class="material__overlay">
+                        <div class="material__title">Клееный брус</div>
+                        <div class="material__text">
+                            Мы будем согласовывать различные технические моменты, 
+                            приглашая Вас в офис для уточнения деталей или другим 
+                            способом дистанционно. По завершению проектирования Вы 
+                            получите готовый проект - альбом формата А3, объёмом 
+                            примерно 15-150 листов (в зависимости от размера дома, 
+                            сложности конструкций и Ваших пожеланий). В альбоме 
+                            будут содержаться все необходимые для строительства 
+                            чертежи и технические данные по конструкциям и узлам 
+                            дома от фундамента до крыши.
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="material__item">
+                    <img src="img/material/material1.jpg" alt="">
+                    <div class="material__title material__title--abs">Клееный брус</div>
+                    <div class="material__overlay">
+                        <div class="material__title">Клееный брус</div>
+                        <div class="material__text">
+                            Мы будем согласовывать различные технические моменты, 
+                            приглашая Вас в офис для уточнения деталей или другим 
+                            способом дистанционно. По завершению проектирования Вы 
+                            получите готовый проект - альбом формата А3, объёмом 
+                            примерно 15-150 листов (в зависимости от размера дома, 
+                            сложности конструкций и Ваших пожеланий). В альбоме 
+                            будут содержаться все необходимые для строительства 
+                            чертежи и технические данные по конструкциям и узлам 
+                            дома от фундамента до крыши.
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="material__item">
+                    <img src="img/material/material1.jpg" alt="">
+                    <div class="material__title material__title--abs">Клееный брус</div>
+                    <div class="material__overlay">
+                        <div class="material__title">Клееный брус</div>
+                        <div class="material__text">
+                            Мы будем согласовывать различные технические моменты, 
+                            приглашая Вас в офис для уточнения деталей или другим 
+                            способом дистанционно. По завершению проектирования Вы 
+                            получите готовый проект - альбом формата А3, объёмом 
+                            примерно 15-150 листов (в зависимости от размера дома, 
+                            сложности конструкций и Ваших пожеланий). В альбоме 
+                            будут содержаться все необходимые для строительства 
+                            чертежи и технические данные по конструкциям и узлам 
+                            дома от фундамента до крыши.
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    {% include "partials/_order.html" %}
+
+	{% include "partials/_copyright.html" %}
+
+{% endblock %}

@@ -15,12 +15,25 @@
 			display: none
 		&-link 
 			display: inline-block
+			position: relative
 			& span 
 				height: 1px
-				width: 1.875rem
+				width: 31px
 				display: block
 				margin: 0.425rem 0
 				background: $firstColor
+				+tr(all ease 0.2s)
+			&.is-open
+				& span 
+					margin: 0
+					&:first-child
+						transform: rotate(45deg)
+					&:last-child
+						transform: rotate(-45deg)
+						position: absolute
+						bottom: 0
+					&:nth-child(2)
+						opacity: 0
 	&__logo
 		display: inline-block
 		padding: 0.25rem 0
@@ -61,23 +74,32 @@
 			background-size: contain
 	&__country
 		display: none
+		position: relative
 		+rmin($md)
 			display: block
 	&__country-href
 		color: rgba(255, 255, 255, 0.87)
 		position: relative
-		padding-left: 1rem
+		padding-left: 2rem
 		padding-right: 1rem
-		margin-left: 4.25rem
+		font-size: 1.125rem
+		+rmin($md)
+			margin-left: 4.25rem
+			font-size: 1rem
+			padding-left: 1rem
 		&:after
 			position: absolute
 			left: 0
 			content: ' '
-			width: 0.75rem
-			height: 1rem
+			width: 1.25rem
+			height: 1.25rem
 			background-image: url(../img/icon/city-select.svg) 
+			background-position: center center
 			background-repeat: no-repeat
 			background-size: contain
+			+rmin($md)
+				width: 0.75rem
+				height: 1rem
 		&:before
 			position: absolute
 			right: 0
@@ -88,15 +110,58 @@
 			background-image: url(../img/icon/city-select-arr.svg) 
 			background-repeat: no-repeat
 			background-size: contain
-
+	&__country
+		&--show 
+			width: 100%
+			display: block
+			margin: 1rem 0
+			+rmin($md)
+				display: none
+		&-list 
+			display: none
+			padding: 0.25rem 1rem
+			background: #fafafa
+			box-shadow: 0 0 5px 2px rgba(0,0,0,.1)
+			margin-top: 1rem
+			+rmin($md)
+				position: absolute
+				z-index: 4
+				left: 4.25rem
+				top: 2rem
+				margin-top: 0
+		&-item 
+			margin: 0.25rem 0
+		&-link 
+			color: #000000
+			+tr(all ease 0.2s)
+			&:hover 
+				color: $firstColor
+		&.is-open &-list 
+			display: block
+		&.is-open &-href 
+			&:before 
+				transform: rotate(180deg)
+				top: 0.25rem
+		
 
 // navigation
 .navigation
 	background: #2E2423
 	padding: 0.5rem 0
-	display: none
+	display: block
+	position: fixed
+	z-index: 3
+	width: 100%
+	left: calc( -100% - 1rem )
+	+tr(all ease 0.3s)
 	+rmin($md) 
 		display: block
+		position: relative
+		left: 0
+	&.is-open
+		transform: translateX(calc(100% + 1rem))
+		+rmin($md)
+			transform: none
 	&--main
 		background: transparent
 	&__wrap
@@ -106,36 +171,54 @@
 		justify-content: space-between
 	&__logo
 		max-width: 11rem
-		display: block
+		display: none
+		+rmin($md)
+			display: block
 		& img 
 			width: 100%
 	&__menu
 		display: flex
 		align-items: center
-		margin-top: 0.5rem
+		//margin-top: 0.5rem
 	&__list
 		display: flex
+		flex-wrap: wrap
 		align-items: center
+		padding: 0.5rem 0
+		+rmin($md)
+			padding: 0
+			flex-wrap: nowrap
 	&__item
-		padding: 0.25rem 0
-		margin-left: 0.5rem
-		position: relativ
+		padding: 0.5rem 0
+		position: relative
+		width: 100%
+		+rmin($md)
+			width: auto
+			padding: 0.25rem 0
+			margin-left: 0.5rem
 		+rmin($lg)
 			margin-left: 1.5rem
 	&__link
 		color: #ffffff
 		position: relative
-		&:after
-			content: ' '
-			width: 0
-			position: absolute
-			left: 0
-			bottom: -3px
-			height: 1px
-			background: #ffffff
-			+tr(all ease 0.3s)
-		&:hover:after
-			width: 100%
+		font-family: 'Roboto Condensed'
+		font-weight: 700
+		font-size: 1.125rem
+		+rmin($md)
+			font-family: 'Roboto'
+			font-weight: 300
+			font-size: 1rem
+			&:after
+				content: ' '
+				width: 0
+				position: absolute
+				left: 0
+				bottom: -3px
+				height: 1px
+				background: #ffffff
+				+tr(all ease 0.3s)
+			&:hover:after
+				width: 100%
 	&__slink
 		padding-right: 1rem
 		&:before
@@ -149,8 +232,56 @@
 			background-repeat: no-repeat
 			background-size: contain
 	&__submenu
-		position: absolute
+		background: #312323
+		padding: 0 0 0rem 0
 		display: none
+		min-width: 14rem
+		left: -1.5rem
+		+rmin($md)
+			position: absolute
+			padding: 1rem 0
+		&.is-opened
+			display: block
+		& li 
+			padding: 0.125rem 0
+			margin: 0.25rem 1rem
+			& a
+				font-weight: 300
+	&__shadow
+		box-shadow: 0 0 3px 3px rgba(0,0,0,.1)
+		background: #2E2423
+	
+	&__phone
+		font-size: 1.125rem
+		padding-left: 2rem
+		font-weight: 900
+		position: relative
+		color: #ffffff
+		margin: 1rem 0
+		width: 100%
+		+rmin($md)
+			display: none
+		&:after
+			position: absolute
+			left: 0
+			top: 0.125rem
+			content: ' '
+			width: 1.25rem
+			height: 1.25rem
+			background-image: url(../img/icon/phone.svg)
+			background-repeat: no-repeat
+			background-size: contain
+	&__social
+		display: flex
+		margin: 1rem 0
+		+rmin($md)
+			display: none
+		&-link 
+			width: 2rem
+			height: 2rem
+			margin-right: 1rem
+			display: block
+		
 		
 // main slider
 .slider
@@ -298,8 +429,6 @@
 
 // main-services
 .main-services
-	padding-top: 3rem
-	padding-bottom: 2rem
 	&__wrap
 		display: flex
 		flex-wrap: wrap
@@ -372,9 +501,7 @@
 
 // main-production
 .main-production
-	margin-top: 3rem
-	padding-top: 3rem
-	padding-bottom: 4rem
+	margin-top: 1rem
 	background: url(../img/main-production/main-production-bg.jpg)
 	background-size: cover
 	&__wrap
@@ -464,7 +591,7 @@
 
 // main-creating
 .main-creating
-	padding-top: 3rem
+	padding-bottom: 0
 	&__wrap	
 		display: flex
 		flex-wrap: wrap
@@ -492,8 +619,6 @@
 
 // main-project
 .main-project
-	padding-top: 3rem
-	padding-bottom: 4rem
 	+rmin($lg)
 		padding-top: 0
 		margin-top: -3rem	
@@ -524,6 +649,11 @@
 		font-size: 1.125rem
 		color: #ffffff
 		margin-bottom: 0.125rem
+		&--big 
+			font-size: 1.5rem
+	&__subtitle
+		font-size: 1rem
+		color: #ffffff
 	&__price
 		font-family: 'Roboto Condensed'
 		font-weight: 700
@@ -580,6 +710,8 @@
 		justify-content: center
 		+rmin($sm)
 			display: none
+		&--no-hide
+			display: flex !important
 	&__arr
 		width: 1.5rem
 		height: 1.5rem
@@ -604,115 +736,10 @@
 			font-size: 2rem
 		&-total 
 			line-height: 2rem
-			
-
-// calculator
-.calculator
-	padding-top: 3rem
-	padding-bottom: 3rem
-	background-image: url(../img/calculator/calculator.jpg)
-	background-repeat: no-repeat
-	background-size: cover
-	&__navs
-		display: flex
-		justify-content: center
-	&__nav
-		width: 2rem
-		height: 2rem
-		color: $firstColor
-		border: 1px solid $firstColor
-		border-radius: 50%
-		cursor: pointer
-		display: flex
-		justify-content: center
-		align-items: center
-		+tr(background ease 0.2s)
-		margin: 0 0.375rem
-		position: relative
-		margin-bottom: 2rem
-		&:after
-			position: absolute
-			content: ' '
-			top: 50%
-			right: -0.75rem
-			width: 0.75rem
-			height: 1px
-			background: $firstColor
-		&:last-child:after
-			display: none
-		//&:hover
-		//	background: rgba(223, 188, 130, 0.3)
-		&--active
-			background: rgba(223, 188, 130, 0.3)
-	&__subtitle
-		color: #ffffff
-		font-size: 1.5rem
-		font-family: 'Roboto Condensed'
-		font-weight: 700
-		text-align: center
-	&__list
-		display: flex
-		flex-wrap: wrap
-		justify-content: center
-		margin-top: 2rem
-	&__item
-		padding: 0 1rem
-		text-align: center
-		width: 50%
-		max-width: 15rem
-		margin-bottom: 2rem
-		+rmin($xs)
-			width: 100%
-	&__img
-		max-width: 6rem
-		height: 6rem
-		margin: 0 auto
-		display: block
-		+rmin($xs)
-			max-width: 8rem
-			height: 8rem
-	&__radio
-		color: #ffffff
-		margin-top: 1rem
-		& label
-			margin-left: 0.125rem
-		& input[type="radio"]
-    		display: none
-		& input[type="radio"] + label
-			position: relative
-			padding-left: 1.5rem
-		& input[type="radio"] + label:after
-			content: ' '
-			position: absolute
-			top: 0
-			left: 0
-			background: transparent
-			height: 1rem
-			width: 1rem
-			border: 3px solid transparent
-			border-radius: 50%
-			display: inline-block
-			padding: 0 0 0 0px
-			box-shadow: 0px 0px 0px 1px $firstColor
-			
-		& input[type="radio"]:checked + label:after
-			background: url(../img/calculator/check.svg)
-			background-repeat: no-repeat
-			background-position: center center
-			background-size: 0.5rem
-			height: 16px
-			width: 16px
-			display:inline-block
-			padding: 0 0 0 0px
-	&__btn
-		margin-top: 1rem
-		text-align: center
 
 
 // main-portfolio
 .main-portfolio
-	padding-top: 3rem
-	padding-bottom: 3rem
 	&__wrap
 		display: flex
 		//flex-wrap: wrap
@@ -790,9 +817,6 @@
 
 // main-why
 .main-why
-	padding-top: 3rem
-	padding-bottom: 2rem
-	//margin-top: 3rem
 	background-image: url(../img/why-bg.jpg)
 	background-size: cover
 	text-align: center
@@ -807,6 +831,8 @@
 			width: calc(50% - 1rem)
 		+rmin($md)
 			width: calc(33.33% - 1rem)
+		&:last-child
+			margin-bottom: 0
 	&__icon
 		text-align: center
 		margin-bottom: 1.5rem
@@ -828,19 +854,33 @@
 		margin-top: 0.5rem
 
 // main-order
-.main-order
-	padding-top: 3rem
-	padding-bottom: 1rem
+.order
+	&--bg 
+		background-image: url(../img/order-bg.png)
+		background-repeat: no-repeat
+		background-size: cover
 	&__subtitle
 		max-width: 64rem
 		text-align: center
 		margin: 0 auto
+		&--white
+			color: #ffffff
+	&__bordered
+		border: 2px solid $firstColor
+		padding: 2rem 2rem 3rem
+	&__block
+		max-width: 100%
+		margin: 0 auto
+		+rmin($sm)
+			max-width: 75%
+
+
 
 // main-contact
 .main-contact
 	padding-top: 4rem
 	padding-bottom: 4rem
-	margin-top: 3rem
+	margin-top: 1rem
 	background-image: url(../img/main-contact.jpg)
 	background-position: center center
 	&__wrap
@@ -869,6 +909,694 @@
 			width: 1.75rem
 			height: 1.75rem
 			margin-right: 1rem
+
+// material
+.material
+	&__wrap
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+	&__item
+		width: 100%
+		display: block
+		position: relative
+		overflow: hidden
+		margin-bottom: 2rem
+		+rmin($sm)
+			width: calc(50% - 1rem)
+		&:after
+			content: ' '
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			opacity: 0.8
+			background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, #18130A 100%)
+			background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, #18130A 100%)
+			background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #18130A 100%)
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#18130A', endColorstr='#000000',GradientType=0 )
+	&__title
+		font-family: 'Roboto Condensed'
+		font-weight: 700
+		font-size: 1.25rem
+		text-align: center
+		width: 100%
+		color: #ffffff
+		margin-bottom: 1rem
+		&--abs 
+			position: absolute
+			bottom: 1rem
+			left: 0
+			z-index: 2
+			+tr(all ease 0.3s)
+	&__overlay
+		position: absolute
+		top: 100%
+		left: 0
+		width: 100%
+		height: 100%
+		text-align: center
+		padding: 2rem
+		background: rgba(0,0,0,.15)
+		z-index: 3
+		opacity: 0
+		+tr(all ease 0.5s)
+	&__text
+		color: #ffffff
+	// hover
+	&__item:hover &__title--abs
+		transform: translateY(10rem)
+	&__item:hover &__overlay
+		opacity: 1
+		top: 0
+		background: rgba(0,0,0,.75)
+
+
+// jumbotron
+.jumbotron
+	padding: 7rem 0
+	background-position: center
+	background-repeat: no-repeat
+	background-size: cover
+	position: relative
+	&:after
+		content: ' '
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: rgba(0,0,0,.7)
+	& > .container
+		position: relative
+		z-index: 2
+	& .title
+		margin-bottom: 2rem
+	&__wrap
+		margin: 0 auto
+	&__btn
+		display: flex
+		justify-content: center
+
+
+// content
+.content
+	&__wrap
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+	&__top-block
+		margin-bottom: 3rem
+	&__left
+		max-width: 100%
+		margin-bottom: 3rem
+		+rmin($md)
+			max-width: 45%
+		& img 
+			max-width: 14rem
+			margin: 0 auto
+	&__right
+		width: 100%
+		margin-bottom: 3rem
+		+rmin($md)
+			width: calc(50%)
+	& blockquote
+		font-family: 'Roboto Condensed'
+		font-weight: 700
+		font-size: 1.25rem
+		margin-bottom: 1rem
+		text-align: center
+		+rmin($md)
+			padding-left: 1rem
+			border-left: 2px solid $firstColor
+			text-align: left
+	& ul 
+		list-style: none
+		& li 
+			margin-bottom: 1.5rem
+			font-family: 'Roboto Condensed'
+			font-size: 1.25rem
+			position: relative
+			padding-left: 1.5rem
+			line-height: 1.3
+			&:after
+				content: ' '
+				width: 0.675rem
+				height: 0.675rem
+				border-radius: 50%
+				background: $firstColor
+				position: absolute
+				top: 0.375rem
+				left: 0
+			& span 
+				font-weight: 700
+	&__head
+		max-height: 25rem
+		overflow: hidden
+		position: relative
+		margin-bottom: 2rem
+		&-overlay
+			position: absolute
+			top: 0
+			height: 0
+			width: 100%
+			height: 100%
+			background: rgba(0,0,0,.75)
+			padding: 2rem
+			display: flex
+			align-items: center
+			justify-content: center
+			+tr(all ease 0.3s)
+		&-title 
+			color: #ffffff
+			text-align: center
+			&--small
+				font-size: 1.25rem
+				font-family: 'Roboto'
+				font-weight: 700
+		&--item:hover &-overlay
+			background: rgba(0,0,0,.5)
+	&__body
+		padding-bottom: 0.5rem
+		margin-bottom: 1.5rem
+		border-bottom: 1px solid $firstColor
+		& h3 
+			font-family: 'Roboto Condensed'
+			margin-bottom: 1rem
+			font-size: 1.25rem
+			font-weight: 500
+		& ul 
+			list-style: disc
+			margin-left: 20px
+			margin-bottom: 1.5rem
+			& li 
+				padding: 0
+				margin: 0.5rem 0
+				font-size: 1rem
+				font-family: 'Roboto'
+				&:after
+					display: none
+		& ol 
+			list-style: decimal
+			margin-left: 20px
+			margin-bottom: 1.5rem
+			& li 
+				padding: 0
+				margin: 0.5rem 0
+				font-size: 1rem
+				font-family: 'Roboto'
+		& img 
+			max-width: 100%
+			margin-bottom: 1rem
+		& blockquote
+			padding: 1.25rem 2.25rem !important
+			position: relative
+			margin-bottom: 1.5rem
+			border: 1px solid $firstColor !important
+			font-size: 1rem
+			font-weight: 300
+			font-family: 'Roboto'
+			text-align: left
+			&:after
+				content: ' '
+				position: absolute
+				background-image: url(../img/icon/quotes.svg)
+				background-position: center
+				background-size: contain
+				width: 1rem
+				height: 1rem
+				top: 0.5rem
+				left: 0.5rem
+			&:before
+				content: ' '
+				position: absolute
+				background-image: url(../img/icon/quotes.svg)
+				background-position: center
+				background-size: contain
+				width: 1rem
+				height: 1rem
+				bottom: 0.5rem
+				right: 0.5rem
+
+
+// contact
+.contact
+	&__wrap
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+	&__col
+		width: 100%
+		margin-bottom: 2rem
+		+rmin($md)
+			width: calc(50% - 2rem)
+	&__left
+		width: 100%
+		margin-bottom: 4rem
+		+rmin($md)
+			width: 20rem
+	&__right
+		width: 100%
+		margin-bottom: 4rem
+		+rmin($md)
+			width: calc(100% - 22rem)
+	&__subtitle
+		font-size: 1.063rem
+		font-family: 'Roboto'
+		font-weight: 700
+	&__descr
+		margin-bottom: 0.75rem
+	&__social
+		display: flex
+		&-item 
+			display: block
+			max-width: 2rem
+			margin-right: 1rem
+			margin-top: 1rem
+			margin-bottom: 2rem
+	&__tabs
+		&-nav 
+			margin-bottom: 1.25rem
+		&-link
+			font-size: 1.063rem
+			margin-right: 1rem
+			font-family: 'Roboto'
+			font-weight: 700
+			border-bottom: 2px solid $firstColor
+			padding-bottom: 0.125rem
+			opacity: 0.3
+			color: #000000
+			+tr(all ease 0.3s)
+			&.is-active, &:hover
+				opacity: 1
+		&-item 
+			display: none
+			&.is-active
+				display: block
+	
+
+
+// pb - slider one slide
+.pb
+	&__carousel
+		position: relative
+	&__item
+		position: relative
+		display: block
+	&__overflow
+		position: absolute
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		display: flex
+		flex-wrap: wrap
+		justify-content: center
+		align-items: flex-end
+		align-content: flex-end
+		padding: 1rem
+		background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 51%, rgba(0,0,0,1) 100%)
+		background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 51%,rgba(0,0,0,1) 100%)
+		background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 51%,rgba(0,0,0,1) 100%)
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 )
+		+rmin($sm)
+			padding: 2rem
+	&__title
+		font-size: 1.25rem
+		font-family: 'Roboto Condensed'
+		font-weight: 700
+		width: 100%
+		text-align: center
+		color: #ffffff
+		margin-bottom: 0.25rem
+		+rmin($sm)
+			font-size: 1.5rem
+	&__subtitle
+		width: 100%
+		text-align: center
+		color: #ffffff
+	&__arr
+		position: absolute
+		top: calc(50% - 1.5rem)
+		background-image: url(../img/icon/arr.svg)
+		background-size: cover
+		cursor: pointer
+		width: 3rem
+		height: 3rem
+		z-index: 9
+		&--left 
+			left: 1rem
+			+rmin($lg)
+				left: -4rem
+		&--right 
+			transform: rotate(180deg)
+			right: 1rem
+			+rmin($lg)
+				right: -4rem
+
+
+// catalog
+.catalog
+	&__wrap
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+	&__left
+		width: 100%
+		position: absolute
+		top: 6rem
+		left: 0
+		right: 0
+		background: #ffffff
+		z-index: 1
+		margin: 0 auto
+		transform: translateX(calc(-100% - 1rem))
+		+tr(all ease 0.3s)
+		+rmin($sm)
+			width: 18rem
+			position: relative
+			top: 0
+			transform: none
+		&.is-open
+			transform: translateX(0)
+	&__right
+		width: 100%
+		+rmin($sm)	
+			width: calc(100% - 20rem)
+	&__title
+		+rmin($sm)
+			display: none
+	&__item
+		width: 100%
+		margin-bottom: 2rem
+		+rmin($xs)
+			width: calc(50% - 1rem)
+		+rmin($sm)
+			width: 100%
+		+rmin($md)
+			width: calc(50% - 1rem)
+	&__link
+		text-align: center
+	&__open-panel
+		margin: 0 auto
+		display: inline-block
+		margin-bottom: 1rem
+		color: #000000
+		border-bottom: 1px solid $firstColor
+		+rmin($sm)
+			display: none
+	&__category
+		padding: 1.5rem
+		border: 2px solid $firstColor
+		margin-bottom: 2rem
+		&-link 
+			font-family: 'Roboto Condensed'
+			font-size: 1.125rem
+			font-weight: 700
+			color: #000000
+		&-item 
+			padding-bottom: 0.5rem
+			&:last-child
+				padding-bottom: 0
+
+// article
+.article
+	display: block
+	color: #000000
+	&__img
+		margin-bottom: 0.75rem
+	&__title
+		font-family: 'Roboto condensed'
+		font-size: 1.375rem
+		font-weight: 700
+		margin-bottom: 0.5rem
+	&__description
+		margin-bottom: 0.5rem
+	&__date
+		color: #cccccc
+		font-size: 0.875rem
+
+
+
+// block-order
+.block-order
+	display: none
+	border: 2px solid $firstColor
+	padding: 1.5rem 1.5rem 11rem 1.5rem
+	background-image: url(../img/block-order.png)
+	background-position: bottom center
+	background-size: contain
+	background-repeat: no-repeat
+	+rmin($md)
+		display: block
+	&__title
+		font-family: 'Roboto Condensed'
+		font-size: 1.25rem
+		font-weight: 700
+		text-align: center
+		margin-bottom: 1rem
+
+// project
+.project
+	&__top
+		+rmin($md)
+			display: none
+	&__wrap
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+	&__left
+		width: 100%
+		margin-bottom: 1rem
+		+rmin($md)
+			width: calc(55% - 1rem)
+	&__right
+		width: 100%
+		+rmin($md)
+			width: calc(45% - 1rem)
+	&__title
+		font-size: 2.5rem
+		font-family: 'Ubuntu'
+		font-weight: 500
+		padding-bottom: 1rem
+		border-bottom: 1px solid $firstColor
+		display: none
+		+rmin($md)
+			display: block
+	&__slider
+		position: relative
+	&__thumbs
+		margin-top: 0.75rem
+		padding-left: 2rem
+		padding-right: 2rem
+		position: relative
+		display: none
+		+rmin($xs)
+			display: block
+		& .owl-item
+			position: relative
+		& .current
+			&:after
+				content: ' '
+				position: absolute
+				bottom: 0
+				left: 0
+				height: 5px
+				width: 100%
+				background: $firstColor
+		&-arr 
+			position: absolute
+			top: calc(50% - 1rem)
+			width: 2rem
+			height: 2rem
+			background: url(../img/icon/arr.svg)
+			background-position: center center
+			background-repeat: no-repeat
+			background-size: contain
+			cursor: pointer
+			&--left 
+				transform: rotate(0deg)
+				left: 0
+			&--right 
+				transform: rotate(180deg)
+				right: 0
+
+// characteristics
+.characteristics
+	padding: 0.75rem 0
+	border-bottom: 1px solid $firstColor
+	margin-bottom: 1.5rem
+	&__item
+		display: flex
+		align-content: center 
+		align-items: center
+		padding: 0.5rem 0
+	&__icon
+		width: 1.25rem
+		height: 1.25rem
+		margin-right: 1rem
+	&__text
+		font-size: 1.125rem
+		font-family: 'Roboto'
+		& span 
+			font-family: 'Roboto Condensed'
+			font-weight: 700
+
+// blike
+.blike
+	padding-top: 0
+	&__block
+		border: 2px solid $firstColor
+		padding-left: 2rem
+		padding-right: 2rem
+		background-image: url(../img/project/blike.png)
+		background-position: bottom left 60%
+		background-size: contain
+		background-repeat: no-repeat
+		background-size: 20rem
+		min-height: 15rem
+		padding-top: 1rem
+		+rmin($md)
+			background-size: contain
+			min-height: 15rem
+			display: flex
+			align-content: center
+			align-items: center
+			width: 100%
+			padding-top: 0
+	&__wrap
+		display: flex
+		flex-direction: column
+		align-items: center
+		align-content: center
+		width: 100%
+		min-height: 17rem
+		+rmin($md)
+			flex-direction: row
+			flex-wrap: wrap
+			justify-content: space-between
+			min-height: auto
+		
+	&__title
+		font-size: 1.75rem
+		font-family: 'Ubuntu'
+		margin-bottom: 1rem
+		+rmin($sm)
+			font-size: 2.25rem
+		+rmin($md)
+			font-size: 2.5rem
+			margin-bottom: 0
+
+// inp
+.inp
+	padding-top: 1rem
+	&__top-title
+		font-size: 1.5rem
+		font-family: 'Roboto Condensed'
+		margin-bottom: 3rem
+		font-weight: 700
+		text-align: center
+	&__wrap
+		display: flex
+		width: 100%
+		flex-wrap: wrap
+		+rmin($md)
+			flex-flow: row nowrap
+	&__item
+		overflow: hidden
+		background-repeat: no-repeat
+		background-position: center
+		background-size: cover
+		position: relative
+		flex: 1 1 100%
+		height: 8rem
+		margin-bottom: 1rem
+		cursor: pointer
+		+tr(all ease 0.3s)
+		+rmin($md)
+			flex: 1 1 25%
+			height: 30rem
+			margin-bottom: 0
+		&:nth-child(1)
+			background-image: url(../img/project/inp1.png)
+		&:nth-child(2)
+			background-image: url(../img/project/inp2.png)
+		&:nth-child(3)
+			background-image: url(../img/project/inp3.png)
+		&:nth-child(4)
+			background-image: url(../img/project/inp4.png)
+		
+	&__block
+		width: 100%
+		height: 100%
+		position: absolute
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+		display: flex
+		justify-content: flex-end
+		align-items: center
+		flex-direction: column
+		padding-bottom: 1rem
+		+rmin($md)
+			padding-bottom: 2rem
+		& img 
+			margin-bottom: 1rem
+			max-width: 3.5rem
+			+rmin($md)
+				max-width: 4rem
+	&__title
+		font-size: 1.125rem
+		font-weight: 700
+		font-family: 'Roboto Condensed'
+		color: #ffffff
+	&__text
+		background: rgba(0,0,0,.7)
+		padding: 1.5rem
+		height: 100%
+		color: #ffffff
+		display: flex
+		align-content: center
+		align-items: center
+		opacity: 0
+		visibility: hidden
+		position: relative
+		z-index: 2
+		width: 100%
+		cursor: pointer
+		+tr(all ease 0.3s)
+		+rmin($md)
+			width: 20rem
+	&__item--is-active &__text 
+		opacity: 1
+		visibility: visible
+	&__item
+		&--is-active
+			flex: 0.000000001 0.00000001 100%
+			height: auto
+			+rmin($md)
+				flex: 0.000000001 0.00000001 20rem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

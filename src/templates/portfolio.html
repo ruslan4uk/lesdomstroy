@@ -1,0 +1,110 @@
+---
+title: Портфолио
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	
+	{# partial example #}
+	{% include "partials/_top.html" %}
+
+    <section class="catalog">
+        <div class="container">
+            <div class="title">Наши работы</div>
+            <div class="catalog__link">
+                <a href="" class="catalog__open-panel">Выбрать параметры</a>
+            </div>
+            
+            <div class="catalog__wrap">
+                <div class="catalog__left">
+                    <div class="catalog__filter filter">
+                        <div class="filter__block">
+                            <div class="filter__title">Тип</div>
+                            <div class="filter__control">
+                                <input type="checkbox" id="ch1" class="filter__checkbox">
+                                <label for="ch1" class="filter__checkbox-label">Дом</label>
+                            </div>
+                            <div class="filter__control">
+                                <input type="checkbox" id="ch2" class="filter__checkbox">
+                                <label for="ch2" class="filter__checkbox-label">Баня</label>
+                            </div>
+                        </div>
+                        <div class="filter__block">
+                            <div class="filter__title">Материал</div>
+                            <div class="filter__control">
+                                <input type="checkbox" id="ch1" class="filter__checkbox">
+                                <label for="ch1" class="filter__checkbox-label">Оцилиндрованное бревно</label>
+                            </div>
+                            <div class="filter__control">
+                                <input type="checkbox" id="ch2" class="filter__checkbox">
+                                <label for="ch2" class="filter__checkbox-label">Профилированный брус</label>
+                            </div>
+                            <div class="filter__control">
+                                <input type="checkbox" id="ch2" class="filter__checkbox">
+                                <label for="ch2" class="filter__checkbox-label">Клееный брус</label>
+                            </div>
+                            <div class="filter__control">
+                                <input type="checkbox" id="ch2" class="filter__checkbox">
+                                <label for="ch2" class="filter__checkbox-label">Обрезной брус</label>
+                            </div>
+                            <div class="filter__control">
+                                <input type="checkbox" id="ch2" class="filter__checkbox">
+                                <label for="ch2" class="filter__checkbox-label">Срубы ручной рубки</label>
+                            </div>
+                        </div>
+                        <div class="filter__block">
+                            <div class="filter__title">Площадь, м2</div>
+                            <div class="filter__control">
+                                <input type="checkbox" id="ch1" class="filter__checkbox">
+                                <label for="ch1" class="filter__checkbox-label">Меньше 100 кв.м.</label>
+                            </div>
+                            <div class="filter__control">
+                                <input type="checkbox" id="ch2" class="filter__checkbox">
+                                <label for="ch2" class="filter__checkbox-label">От 100 до 200 кв.м.</label>
+                            </div>
+                            <div class="filter__control">
+                                <input type="checkbox" id="ch2" class="filter__checkbox">
+                                <label for="ch2" class="filter__checkbox-label">Больше 200 кв.м</label>
+                            </div>
+                        </div>
+                        <div class="filter__btn">
+                            <a href="" class="btn">Применить</a>
+                        </div>
+                    </div>
+
+                    <div class="block-order">
+                        <div class="block-order__title">Отправить свой проект на расчет</div>
+                        <div class="block-order__btn">
+                            <a href="" class="btn btn--revers">Рассчитать стоимость</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog__right">
+                    <div class="catalog__wrap">
+
+                        {% for i in [1,2,3,4,5,6,7,8] -%}
+                        <div class="main-project__item catalog__item">
+                            <img src="img/main-project.jpg" alt="" />
+                            <div class="main-project__info">
+                                <div class="main-project__title">Дом из оцилиндрованного бревна</div>
+                                <div class="main-project__subtitle">КП Новое Завьялово</div>
+                            </div>
+                            <div class="main-project__overlay">
+                                <div class="main-project__title">Дом из оцилиндрованного бревна</div>
+                                <div class="main-project__subtitle">КП Новое Завьялово</div>
+                                <a href="#" class="btn btn--revers main-project__btn">Еще 8 фото</a>
+                            </div>
+                        </div>
+                        {%- endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include "partials/_order.html" %}
+
+	{% include "partials/_copyright.html" %}
+
+{% endblock %}
