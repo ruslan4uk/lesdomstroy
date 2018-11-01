@@ -5,6 +5,17 @@ import 'jquery-sticky';
 import 'remodal';
 import inputmask from 'inputmask';
 
+// main-portfolio mobile fix
+$(document).on('click touchend', '.main-portfolio__item', function() {
+  let href = $(this)
+    .find('a')
+    .attr('href');
+  if (window.outerWidth < 768) {
+    window.location.href = href;
+  }
+});
+// fake input file
+
 $('.form__file input[type=file]').change(function() {
   var filename = $(this)
     .val()
@@ -395,10 +406,10 @@ $('.main-project__arr--right').on('click', function() {
 $('.slider').vegas({
   delay: 7000,
   slides: [
-    { src: '/img/slider/2.jpg' },
-    { src: '/img/slider/3.jpg' },
-    { src: '/img/slider/4.jpg' },
-    { src: '/img/slider/5.jpg' }
+    { src: 'assets/template/img/slider/2.jpg' },
+    { src: 'assets/template/img/slider/2c-min.png' },
+    { src: 'assets/template/img/slider/4.jpg' },
+    { src: 'assets/template/img/slider/3c-min.png' }
   ],
   // биндим навигацию по слайдеру
   walk: function(index, slideSettings) {
